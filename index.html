@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#fff1f6">
+<title>For Gaby ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --pink: #e879a0;
+    --purple: #b18bd0;
+    --dark: #654458;
+    --light: #fff8fb;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--dark);
+    background: linear-gradient(135deg, #fff0f5, #f3edff, #fff6ed);
+    background-size: 300% 300%;
+    animation: backgroundMove 15s ease infinite;
+    overflow-x: hidden;
+}
+
+@keyframes backgroundMove {
+    0%,100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+#hearts {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.floating-heart {
+    position: absolute;
+    bottom: -40px;
+    animation: floatHeart linear forwards;
+}
+
+@keyframes floatHeart {
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px 15px;
+}
+
+header {
+    width: min(100%, 850px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.logo {
+    font: 700 23px 'Playfair Display', serif;
+    color: #a66c89;
+}
+
+.logo span {
+    color: var(--pink);
+}
+
+.badge {
+    background: #ffffffaa;
+    padding: 9px 16px;
+    border-radius: 30px;
+    font-size: 10px;
+    letter-spacing: 2px;
+    border: 1px solid white;
+}
+
+main {
+    width: min(100%, 760px);
+    margin: auto;
+}
+
+.page {
+    display: none;
+    position: relative;
+    text-align: center;
+    padding: 55px 30px;
+    border-radius: 35px;
+    background: #ffffffbd;
+    border: 1px solid white;
+    box-shadow: 0 25px 80px #95657c20;
+    backdrop-filter: blur(20px);
+    animation: appear .7s ease;
+    overflow: hidden;
+}
+
+.page.active {
+    display: block;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.label {
+    color: #bb7795;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+h1, h2 {
+    font-family: 'Playfair Display', serif;
+}
+
+h1 {
+    font-size: clamp(40px, 8vw, 65px);
+    margin: 15px 0;
+    line-height: 1.1;
+}
+
+h1 span {
+    color: var(--pink);
+    font-style: italic;
+}
+
+h2 {
+    font-size: clamp(30px, 6vw, 43px);
+    color: #98617e;
+    margin: 15px 0;
+}
+
+.description {
+    color: #987d8c;
+    line-height: 1.9;
+    max-width: 500px;
+    margin: auto;
+    font-size: 15px;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 700;
+    padding: 15px 25px;
+    border-radius: 40px;
+    transition: .3s;
+    font-size: 14px;
+}
+
+button:hover {
+    transform: translateY(-4px);
+}
+
+.primary {
+    color: white;
+    background: linear-gradient(110deg, #e879a0, #b18bd0);
+    box-shadow: 0 10px 25px #d77ea34a;
+}
+
+.secondary {
+    background: white;
+    color: #a66c89;
+    border: 1px solid #f2dce6;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 28px;
+}
+
+/* TEDDY BEAR */
+
+.bear-area {
+    height: 230px;
+    display: grid;
+    place-items: center;
+    position: relative;
+    margin: 15px 0;
+}
+
+.bear {
+    position: relative;
+    width: 140px;
+    height: 190px;
+    animation: bearMove 2.5s ease-in-out infinite;
+    filter: drop-shadow(0 15px 12px #80504430);
+}
+
+@keyframes bearMove {
+    50% {
+        transform: translateY(-13px) rotate(4deg);
+    }
+}
+
+.ear {
+    position: absolute;
+    top: 8px;
+    width: 45px;
+    height: 45px;
+    background: #b77b58;
+    border: 5px solid #9e6749;
+    border-radius: 50%;
+}
+
+.ear.left { left: 8px; }
+.ear.right { right: 8px; }
+
+.bear-head {
+    position: absolute;
+    top: 17px;
+    left: 17px;
+    width: 106px;
+    height: 100px;
+    background: #d5a078;
+    border-radius: 50%;
+    z-index: 2;
+}
+
+.bear-eye {
+    position: absolute;
+    top: 42px;
+    width: 8px;
+    height: 9px;
+    background: #443139;
+    border-radius: 50%;
+}
+
+.bear-eye.left { left: 28px; }
+.bear-eye.right { right: 28px; }
+
+.bear-nose {
+    position: absolute;
+    top: 59px;
+    left: 48px;
+    width: 12px;
+    height: 9px;
+    background: #49343a;
+    border-radius: 50%;
+}
+
+.bear-mouth {
+    position: absolute;
+    top: 69px;
+    left: 48px;
+    width: 13px;
+    height: 8px;
+    border-bottom: 2px solid #80505e;
+    border-radius: 50%;
+}
+
+.bear-body {
+    position: absolute;
+    top: 105px;
+    left: 22px;
+    width: 96px;
+    height: 80px;
+    background: #bd835d;
+    border-radius: 45px 45px 30px 30px;
+}
+
+.bear-belly {
+    position: absolute;
+    top: 15px;
+    left: 27px;
+    width: 43px;
+    height: 48px;
+    background: #efd0ae;
+    border-radius: 50%;
+}
+
+.bear-arm {
+    position: absolute;
+    top: 112px;
+    width: 35px;
+    height: 60px;
+    background: #bd835d;
+    border-radius: 30px;
+}
+
+.bear-arm.left {
+    left: 0;
+    transform-origin: top;
+    animation: wave 1.5s infinite ease-in-out;
+}
+
+.bear-arm.right { right: 0; }
+
+@keyframes wave {
+    50% { transform: rotate(35deg); }
+}
+
+.bear-foot {
+    position: absolute;
+    bottom: 0;
+    width: 45px;
+    height: 25px;
+    background: #a96e4d;
+    border-radius: 50%;
+}
+
+.bear-foot.left { left: 15px; }
+.bear-foot.right { right: 15px; }
+
+.bear-heart {
+    position: absolute;
+    top: 110px;
+    left: 57px;
+    z-index: 5;
+    font-size: 24px;
+}
+
+/* ROMANTIC MESSAGE */
+
+#message {
+    min-height: 75px;
+    line-height: 2;
+    color: #967487;
+    font-size: 15px;
+    margin: 20px auto;
+    max-width: 540px;
+}
+
+/* COUPLE ANIMATION */
+
+.scene {
+    height: 330px;
+    max-width: 550px;
+    margin: 20px auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.scene-glow {
+    position: absolute;
+    width: 300px;
+    height: 220px;
+    background: #ffd7e8;
+    filter: blur(45px);
+    border-radius: 50%;
+    left: 50%;
+    top: 50px;
+    transform: translateX(-50%);
+}
+
+.ground {
+    position: absolute;
+    bottom: 30px;
+    left: 10%;
+    right: 10%;
+    height: 20px;
+    background: #a77a941c;
+    filter: blur(10px);
+    border-radius: 50%;
+}
+
+.person {
+    position: absolute;
+    bottom: 45px;
+    width: 100px;
+    height: 250px;
+}
+
+.girl {
+    left: calc(50% - 180px);
+}
+
+.boy {
+    right: calc(50% - 180px);
+}
+
+.head {
+    position: absolute;
+    top: 0;
+    left: 19px;
+    width: 62px;
+    height: 68px;
+    background: #f0bd9e;
+    border-radius: 48%;
+    z-index: 5;
+}
+
+.hair {
+    position: absolute;
+    top: -5px;
+    left: 15px;
+    width: 70px;
+    height: 65px;
+    background: #684354;
+    border-radius: 50% 50% 30% 30%;
+    z-index: 6;
+}
+
+.boy .hair {
+    background: #45353c;
+    height: 35px;
+    border-radius: 50% 50% 20% 20%;
+}
+
+.eye {
+    position: absolute;
+    top: 30px;
+    width: 5px;
+    height: 7px;
+    background: #45353c;
+    border-radius: 50%;
+    z-index: 7;
+}
+
+.eye.left { left: 17px; }
+.eye.right { right: 17px; }
+
+.mouth {
+    position: absolute;
+    top: 47px;
+    left: 26px;
+    width: 11px;
+    height: 6px;
+    border-bottom: 2px solid #ad5f76;
+    border-radius: 50%;
+    z-index: 7;
+}
+
+.body {
+    position: absolute;
+    top: 70px;
+    left: 5px;
+    width: 90px;
+    height: 105px;
+    border-radius: 25px 25px 12px 12px;
+    z-index: 3;
+}
+
+.girl .body {
+    background: linear-gradient(120deg, #f5a9c2, #d66e99);
+}
+
+.boy .body {
+    background: linear-gradient(120deg, #9ca8e5, #6975b8);
+}
+
+.arm {
+    position: absolute;
+    top: 85px;
+    width: 17px;
+    height: 78px;
+    background: #efb995;
+    border-radius: 20px;
+    transform-origin: top;
+    z-index: 4;
+}
+
+.arm.left { left: 0; }
+.arm.right { right: 0; }
+
+.legs {
+    position: absolute;
+    top: 165px;
+    left: 23px;
+    display: flex;
+    gap: 15px;
+}
+
+.leg {
+    width: 19px;
+    height: 70px;
+    background: #efb995;
+    border-radius: 15px;
+}
+
+.boy .leg {
+    background: #4c526e;
+}
+
+.speech {
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%) scale(.7);
+    background: white;
+    padding: 12px 18px;
+    border-radius: 25px;
+    color: #d56e94;
+    font: 600 17px 'Playfair Display', serif;
+    opacity: 0;
+    transition: .5s;
+    white-space: nowrap;
+    z-index: 10;
+    box-shadow: 0 8px 25px #9c668122;
+}
+
+.scene.hugging .speech {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+}
+
+.scene.started .girl {
+    animation: girlWalk 2s forwards ease-in-out;
+}
+
+.scene.started .boy {
+    animation: boyWalk 2s forwards ease-in-out;
+}
+
+@keyframes girlWalk {
+    to {
+        left: calc(50% - 95px);
+        transform: rotate(-5deg);
+    }
+}
+
+@keyframes boyWalk {
+    to {
+        right: calc(50% - 95px);
+        transform: rotate(5deg);
+    }
+}
+
+.scene.hugging .girl {
+    animation: girlHug 1s forwards;
+}
+
+.scene.hugging .boy {
+    animation: boyHug 1s forwards;
+}
+
+@keyframes girlHug {
+    to { transform: translateX(12px) rotate(-10deg); }
+}
+
+@keyframes boyHug {
+    to { transform: translateX(-12px) rotate(10deg); }
+}
+
+.scene.hugging .girl .arm.right {
+    animation: girlArm 1s .2s forwards;
+}
+
+.scene.hugging .boy .arm.left {
+    animation: boyArm 1s .2s forwards;
+}
+
+@keyframes girlArm {
+    to { transform: rotate(75deg); }
+}
+
+@keyframes boyArm {
+    to { transform: rotate(-75deg); }
+}
+
+.scene.complete .person {
+    animation: embrace 2s ease-in-out infinite;
+}
+
+@keyframes embrace {
+    50% { filter: drop-shadow(0 5px 10px #e879a055); }
+}
+
+.burst {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    font-size: 25px;
+    pointer-events: none;
+    animation: burst 1.5s forwards;
+    z-index: 12;
+}
+
+@keyframes burst {
+    from {
+        transform: translate(-50%, -50%) scale(.2);
+        opacity: 1;
+    }
+    to {
+        transform: translate(var(--x), var(--y)) scale(1.5) rotate(30deg);
+        opacity: 0;
+    }
+}
+
+/* LETTER */
+
+.letter {
+    background: #fff9fc;
+    border: 1px solid #f5dce7;
+    border-radius: 22px;
+    padding: 25px;
+    max-width: 520px;
+    margin: 25px auto;
+    line-height: 2;
+    color: #806879;
+    font-size: 14px;
+}
+
+.letter strong {
+    display: block;
+    font: 600 26px 'Playfair Display', serif;
+    color: var(--pink);
+    margin-bottom: 12px;
+}
+
+footer {
+    margin-top: 25px;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #b18c9e;
+}
+
+@media(max-width: 520px) {
+    .page {
+        padding: 40px 18px;
+        border-radius: 25px;
+    }
+
+    .scene {
+        height: 300px;
+    }
+
+    .person {
+        transform: scale(.85);
+        transform-origin: bottom center;
+    }
+
+    .girl {
+        left: calc(50% - 165px);
+    }
+
+    .boy {
+        right: calc(50% - 165px);
+    }
+
+    @keyframes girlWalk {
+        to {
+            left: calc(50% - 85px);
+            transform: scale(.85) rotate(-5deg);
+        }
+    }
+
+    @keyframes boyWalk {
+        to {
+            right: calc(50% - 85px);
+            transform: scale(.85) rotate(5deg);
+        }
+    }
+
+    h1 { font-size: 42px; }
+}
+</style>
+</head>
+
+<body>
+
+<div id="hearts"></div>
+
+<div class="container">
+
+<header>
+    <div class="logo">Little Love <span>♥</span></div>
+    <div class="badge">MADE WITH LOVE</div>
+</header>
+
+<main>
+
+<!-- HALAMAN PERTAMA -->
+
+<section class="page active" id="home">
+
+    <div class="label">A LITTLE SURPRISE FOR YOU</div>
+
+    <div class="bear-area">
+
+        <div class="bear">
+
+            <div class="ear left"></div>
+            <div class="ear right"></div>
+
+            <div class="bear-head">
+                <div class="bear-eye left"></div>
+                <div class="bear-eye right"></div>
+                <div class="bear-nose"></div>
+                <div class="bear-mouth"></div>
+            </div>
+
+            <div class="bear-body">
+                <div class="bear-belly"></div>
+            </div>
+
+            <div class="bear-arm left"></div>
+            <div class="bear-arm right"></div>
+
+            <div class="bear-foot left"></div>
+            <div class="bear-foot right"></div>
+
+            <div class="bear-heart">❤️</div>
+
+        </div>
+
+    </div>
+
+    <h1>Hi, <span>Gaby!</span></h1>
+
+    <p class="description">
+        Aku punya sesuatu yang spesial buat kamu.
+        Sederhana, tapi dibuat dengan penuh rasa sayang.
+    </p>
+
+    <div class="buttons">
+        <button class="primary" onclick="openPage('hug')">
+            Buka Kejutan ❤️
+        </button>
+    </div>
+
+    <footer>DESIGNED WITH LOVE · FOR GABY</footer>
+
+</section>
+
+
+<!-- HALAMAN PELUKAN -->
+
+<section class="page" id="hug">
+
+    <div class="label">JUST FOR YOU</div>
+
+    <h2>A little hug for you</h2>
+
+    <p class="description">
+        Ada seseorang yang ingin menyampaikan
+        sesuatu dari hati yang paling dalam.
+    </p>
+
+    <div id="message"></div>
+
+    <div class="scene" id="scene">
+
+        <div class="scene-glow"></div>
+        <div class="ground"></div>
+
+        <div class="speech">
+            I love you, Gaby! ❤️
+        </div>
+
+        <!-- KARAKTER PEREMPUAN -->
+
+        <div class="person girl">
+
+            <div class="hair"></div>
+
+            <div class="head">
+                <div class="eye left"></div>
+                <div class="eye right"></div>
+                <div class="mouth"></div>
+            </div>
+
+            <div class="body"></div>
+
+            <div class="arm left"></div>
+            <div class="arm right"></div>
+
+            <div class="legs">
+                <div class="leg"></div>
+                <div class="leg"></div>
+            </div>
+
+        </div>
+
+        <!-- KARAKTER LAKI-LAKI -->
+
+        <div class="person boy">
+
+            <div class="hair"></div>
+
+            <div class="head">
+                <div class="eye left"></div>
+                <div class="eye right"></div>
+                <div class="mouth"></div>
+            </div>
+
+            <div class="body"></div>
+
+            <div class="arm left"></div>
+            <div class="arm right"></div>
+
+            <div class="legs">
+                <div class="leg"></div>
+                <div class="leg"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <p class="description" id="caption">
+        Satu pelukan kecil untuk orang yang spesial.
+    </p>
+
+    <div class="buttons">
+
+        <button class="primary" id="hugButton" onclick="startHug()">
+            Klik untuk berpelukan 🤗
+        </button>
+
+        <button class="secondary" onclick="openPage('letter')">
+            Baca surat 💌
+        </button>
+
+    </div>
+
+    <footer>YOU ARE MY FAVORITE PERSON</footer>
+
+</section>
+
+
+<!-- HALAMAN SURAT -->
+
+<section class="page" id="letter">
+
+    <div class="label">A LETTER FOR YOU</div>
+
+    <h2>Dear, Gaby ❤️</h2>
+
+    <div class="letter">
+
+        <strong>Untuk Sayangku</strong>
+
+        Aku mungkin nggak selalu bisa memberikan
+        hal yang sempurna, tapi aku ingin selalu
+        berusaha memberikan yang terbaik buat kamu.
+
+        <br><br>
+
+        Terima kasih sudah hadir dan menjadi bagian
+        dari hari-hariku. Aku senang bisa mengenal
+        kamu, bercanda bersama kamu, dan melewati
+        banyak hal bersama kamu.
+
+        <br><br>
+
+        Semoga kita selalu bisa saling memahami,
+        saling menjaga, dan terus bersama.
+
+        <br><br>
+
+        I love you, Gaby. ❤️
+
+        <br><br>
+
+        <b>With love, Irfan.</b>
+
+    </div>
+
+    <div class="buttons">
+        <button class="primary" onclick="openPage('home')">
+            Kembali ke awal ❤️
+        </button>
+    </div>
+
+    <footer>FOREVER IN MY LITTLE LOVE GARDEN</footer>
+
+</section>
+
+</main>
+</div>
+
+
+<script>
+
+// PINDAH HALAMAN
+
+function openPage(page) {
+
+    document.querySelectorAll('.page').forEach(item => {
+        item.classList.remove('active');
+    });
+
+    document.getElementById(page).classList.add('active');
+
+    if (page === 'hug') {
+        typeMessage();
+    }
+
+}
+
+
+// EFEK MENGETIK
+
+const textMessage =
+"Sayang, mungkin aku nggak selalu ada di samping kamu setiap waktu. Tapi aku ingin kamu tahu kalau kamu selalu punya tempat spesial di hati aku. Terima kasih sudah hadir di hidupku. Aku sayang kamu, Gaby. ❤️";
+
+let typingTimer;
+
+function typeMessage() {
+
+    clearInterval(typingTimer);
+
+    const message = document.getElementById('message');
+
+    message.textContent = "";
+
+    let index = 0;
+
+    typingTimer = setInterval(() => {
+
+        if (index < textMessage.length) {
+
+            message.textContent += textMessage.charAt(index);
+            index++;
+
+        } else {
+
+            clearInterval(typingTimer);
+
+        }
+
+    }, 40);
+
+}
+
+
+// ANIMASI PELUKAN
+
+let hugged = false;
+
+function startHug() {
+
+    if (hugged) {
+        resetHug();
+        return;
+    }
+
+    const scene = document.getElementById('scene');
+    const button = document.getElementById('hugButton');
+    const caption = document.getElementById('caption');
+
+    scene.classList.remove('started', 'hugging', 'complete');
+
+    void scene.offsetWidth;
+
+    scene.classList.add('started');
+
+    button.disabled = true;
+    button.textContent = "Mendekat... ❤️";
+
+    caption.textContent = "Aku ingin memelukmu...";
+
+    setTimeout(() => {
+
+        scene.classList.add('hugging');
+
+        button.textContent = "Sedang berpelukan...";
+
+        caption.textContent = "I love you so much, Gaby. ❤️";
+
+    }, 2000);
+
+
+    setTimeout(() => {
+
+        scene.classList.add('complete');
+
+        createExplosion();
+
+        button.disabled = false;
+        button.textContent = "Peluk lagi 🤗";
+
+        hugged = true;
+
+    }, 3100);
+
+}
+
+
+// RESET PELUKAN
+
+function resetHug() {
+
+    const scene = document.getElementById('scene');
+
+    scene.classList.remove('started', 'hugging', 'complete');
+
+    document.getElementById('hugButton').textContent =
+        "Klik untuk berpelukan 🤗";
+
+    document.getElementById('caption').textContent =
+        "Satu pelukan kecil untuk orang yang spesial.";
+
+    hugged = false;
+
+}
+
+
+// LEDAKAN HATI
+
+function createExplosion() {
+
+    const scene = document.getElementById('scene');
+
+    const symbols = ['❤️', '💕', '💗', '💖', '✨', '💘'];
+
+    for (let i = 0; i < 30; i++) {
+
+        const heart = document.createElement('span');
+
+        heart.className = 'burst';
+
+        heart.textContent =
+            symbols[Math.floor(Math.random() * symbols.length)];
+
+        heart.style.setProperty('--x',
+            (Math.random() * 500 - 250) + 'px');
+
+        heart.style.setProperty('--y',
+            (Math.random() * 400 - 200) + 'px');
+
+        scene.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 1600);
+
+    }
+
+}
+
+
+// HATI MELAYANG DI BACKGROUND
+
+function createFloatingHeart() {
+
+    const area = document.getElementById('hearts');
+
+    const heart = document.createElement('div');
+
+    heart.className = 'floating-heart';
+
+    heart.textContent = ['❤️', '💕', '💗', '✨'][
+        Math.floor(Math.random() * 4)
+    ];
+
+    heart.style.left = Math.random() * 100 + '%';
+
+    heart.style.fontSize =
+        (12 + Math.random() * 17) + 'px';
+
+    heart.style.animationDuration =
+        (6 + Math.random() * 6) + 's';
+
+    area.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 12000);
+
+}
+
+setInterval(createFloatingHeart, 700);
+
+</script>
+
+</body>
+</html>
