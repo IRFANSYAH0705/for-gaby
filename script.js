@@ -1,4 +1,4 @@
-const $ = (id) => document.getElementById(id);
+const $ = id => document.getElementById(id);
 
 const home = $("home");
 const hugPage = $("hugPage");
@@ -7,25 +7,18 @@ const letterPage = $("letterPage");
 const scene = $("scene");
 const typed = $("typed");
 const hugAction = $("hugAction");
-
 const hugBtn = $("hugBtn");
+
 const caption = $("caption");
 const letterAction = $("letterAction");
 const ambient = $("ambient");
 
-
 const message = "Gaby, kalau hari ini terasa melelahkan, semoga kamu ingat kalau ada seseorang yang selalu ingin melihat kamu bahagia. Terima kasih sudah hadir di hidupku. Aku mungkin belum sempurna, tapi aku akan terus belajar menyayangimu dengan lebih baik. Sekarang, boleh aku kasih kamu satu pelukan? ♥";
-
 
 let typingTimer = null;
 let hugTimers = [];
-let hasHugged = false;
-
-
-// PINDAH HALAMAN
 
 function showPage(page) {
-
     [home, hugPage, letterPage].forEach(p => {
         p.classList.remove("active");
     });
@@ -36,23 +29,17 @@ function showPage(page) {
         top: 0,
         behavior: "smooth"
     });
-
 }
 
 
-// TOMBOL BUKA KEJUTAN
-
+// Tombol mulai
 $("startBtn").addEventListener("click", () => {
-
     showPage(hugPage);
-
     beginTyping();
-
 });
 
 
-// EFEK MENGETIK
-
+// Menampilkan pesan satu per satu
 function beginTyping() {
 
     clearInterval(typingTimer);
@@ -67,20 +54,12 @@ function beginTyping() {
 
     letterAction.style.display = "none";
 
-    scene.classList.remove(
-        "walking",
-        "hugging",
-        "complete"
-    );
-
-    hasHugged = false;
+    scene.classList.remove("walking", "hugging", "complete");
 
     hugBtn.disabled = false;
-
     hugBtn.textContent = "Klik untuk berpelukan ♡";
 
-    caption.textContent =
-        "Dua orang yang saling merindukan, sebentar lagi bertemu dalam pelukan.";
+    caption.textContent = "Dua orang yang saling merindukan, sebentar lagi bertemu dalam pelukan.";
 
     let i = 0;
 
@@ -99,143 +78,102 @@ function beginTyping() {
             requestAnimationFrame(() => {
                 hugAction.classList.add("show");
             });
-
         }
 
     }, 32);
-
 }
 
 
-// ANIMASI BERJALAN DAN BERPELUKAN
-
+// Animasi berjalan dan berpelukan
 function doHug() {
 
     hugTimers.forEach(clearTimeout);
     hugTimers = [];
 
-    scene.classList.remove(
-        "walking",
-        "hugging",
-        "complete"
-    );
+    scene.classList.remove("walking", "hugging", "complete");
 
     void scene.getBoundingClientRect();
 
-    hasHugged = true;
-
     hugBtn.disabled = true;
-
     hugBtn.textContent = "Mendekat satu sama lain…";
 
-    caption.textContent =
-        "Pelan-pelan, mereka saling mendekat.";
+    caption.textContent = "Pelan-pelan, mereka saling mendekat.";
 
     letterAction.style.display = "none";
 
     scene.classList.add("walking");
 
-
-    // MULAI BERPELUKAN
-
     hugTimers.push(setTimeout(() => {
 
         scene.classList.remove("walking");
-
         scene.classList.add("hugging");
 
         hugBtn.textContent = "Berpelukan… ♥";
 
-        caption.textContent =
-            "Akhirnya, satu pelukan hangat untuk Gaby.";
+        caption.textContent = "Akhirnya, satu pelukan hangat untuk Gaby.";
 
     }, 1650));
 
-
-    // ANIMASI SELESAI
 
     hugTimers.push(setTimeout(() => {
 
         scene.classList.add("complete");
 
         hugBtn.disabled = false;
-
         hugBtn.textContent = "Peluk lagi ♥";
 
         letterAction.style.display = "flex";
 
     }, 2850));
-
 }
 
 
-// TOMBOL PELUK
-
+// Tombol peluk
 hugBtn.addEventListener("click", doHug);
 
 $("againBtn").addEventListener("click", doHug);
 
 
-// TOMBOL BACA SURAT
-
+// Membuka surat
 $("letterBtn").addEventListener("click", () => {
-
     showPage(letterPage);
-
 });
 
 
-// TOMBOL KEMBALI
-
+// Kembali ke halaman kejutan
 $("backBtn").addEventListener("click", () => {
-
     showPage(hugPage);
-
     beginTyping();
-
 });
 
 
-// HATI MELAYANG
-
+// Animasi hati yang melayang
 function addParticle() {
 
     const el = document.createElement("span");
 
     el.className = "particle";
 
-    el.textContent = ["♥", "✦", "♡"][
-        Math.floor(Math.random() * 3)
-    ];
+    el.textContent = ["♥", "✦", "♡"][Math.floor(Math.random() * 3)];
 
     el.style.left = Math.random() * 100 + "%";
 
-    el.style.fontSize =
-        (11 + Math.random() * 12) + "px";
+    el.style.fontSize = 11 + Math.random() * 12 + "px";
 
-    el.style.setProperty(
-        "--dur",
-        (9 + Math.random() * 7) + "s"
-    );
+    el.style.setProperty("--dur", 9 + Math.random() * 7 + "s");
 
-    el.style.setProperty(
-        "--drift",
-        (Math.random() * 100 - 50) + "px"
-    );
+    el.style.setProperty("--drift", Math.random() * 100 - 50 + "px");
 
     ambient.appendChild(el);
 
     setTimeout(() => {
         el.remove();
     }, 17000);
-
 }
 
 
-// JALANKAN EFEK HATI
-
+// Menjalankan animasi hati
 if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-
     setInterval(addParticle, 1100);
-
 }
+```
