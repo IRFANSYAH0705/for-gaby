@@ -2,16 +2,10 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#fff7fa">
-<meta name="description" content="A little romantic surprise made with love for Gaby.">
 
 <title>For Gaby — A Little Love Story</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="style.css">
 </head>
@@ -23,440 +17,530 @@
 <div class="site">
 
 <header class="nav">
-  <div class="brand">Little Love <span>♥</span></div>
-  <div class="nav-tag">A LITTLE SURPRISE FOR GABY</div>
+    <div class="brand">Little Love <span>♥</span></div>
+    <div class="tag">A LITTLE SURPRISE FOR GABY</div>
 </header>
 
 <main>
 
-<!-- HALAMAN AWAL -->
+<!-- HALAMAN PERTAMA -->
+
 <section class="card page active" id="home">
 
-  <div class="eyebrow">A LITTLE SOMETHING, MADE WITH LOVE</div>
-
-  <div class="teddy-wrap" aria-label="Beruang teddy yang melambaikan tangan">
-
-    <div class="teddy-aura"></div>
-
-    <div class="teddy">
-
-      <div class="ear l"></div>
-      <div class="ear r"></div>
-
-      <div class="head">
-        <div class="eye l"></div>
-        <div class="eye r"></div>
-        <div class="muzzle"></div>
-        <div class="nose"></div>
-        <div class="smile"></div>
-      </div>
-
-      <div class="body">
-        <div class="belly"></div>
-      </div>
-
-      <div class="arm l"></div>
-      <div class="arm r"></div>
-
-      <div class="foot l"></div>
-      <div class="foot r"></div>
-
-      <div class="teddy-heart">♥</div>
-
+    <div class="eyebrow">
+        A LITTLE SOMETHING, MADE WITH LOVE
     </div>
-  </div>
 
-  <h1>For <em>Gaby</em></h1>
+    <div class="teddy-wrap">
 
-  <p class="lead">
-    Ada kejutan kecil yang aku siapkan khusus buat kamu.
-    Bukan sesuatu yang mewah, tapi dibuat dengan banyak rasa sayang.
-  </p>
+        <div class="teddy-aura"></div>
 
-  <div class="btn-row">
-    <button class="btn btn-primary" id="startBtn">
-      Buka kejutan ini <span aria-hidden="true">♡</span>
-    </button>
-  </div>
+        <div class="teddy">
 
-  <div class="signature">MADE WITH LOVE · FROM IRFAN</div>
+            <div class="ear l"></div>
+            <div class="ear r"></div>
+
+            <div class="bear-head">
+                <div class="bear-eye l"></div>
+                <div class="bear-eye r"></div>
+                <div class="muzzle"></div>
+                <div class="nose"></div>
+                <div class="bear-smile"></div>
+            </div>
+
+            <div class="bear-body">
+                <div class="belly"></div>
+            </div>
+
+            <div class="bear-arm l"></div>
+            <div class="bear-arm r"></div>
+
+            <div class="foot l"></div>
+            <div class="foot r"></div>
+
+            <div class="bear-heart">♥</div>
+
+        </div>
+    </div>
+
+    <h1>For <em>Gaby</em></h1>
+
+    <p class="lead">
+        Ada kejutan kecil yang aku siapkan khusus buat kamu.
+        Bukan sesuatu yang mewah, tapi dibuat dengan banyak rasa sayang.
+    </p>
+
+    <div class="btn-row">
+        <button class="btn primary" id="startBtn">
+            Buka kejutan ini ♡
+        </button>
+    </div>
+
+    <div class="signature">
+        MADE WITH LOVE · FROM IRFAN
+    </div>
 
 </section>
 
 
-<!-- HALAMAN PELUKAN -->
+<!-- HALAMAN KEDUA -->
+
 <section class="card page" id="hugPage">
 
-  <div class="eyebrow">A MOMENT JUST FOR US</div>
+    <div class="eyebrow">A MOMENT JUST FOR US</div>
 
-  <h2>Untuk kamu, Gaby</h2>
+    <h2>Untuk kamu, Gaby</h2>
 
-  <p class="lead">
-    Sebelum lanjut, ada sedikit kata-kata yang ingin aku sampaikan.
-  </p>
+    <p class="lead">
+        Sebelum lanjut, ada sedikit kata-kata yang ingin aku sampaikan.
+    </p>
 
-  <div class="message-box">
-    <p id="typed" aria-live="polite"></p>
-  </div>
+    <div class="message-box">
+        <p id="typed" aria-live="polite"></p>
+    </div>
 
-  <div class="btn-row" id="hugAction">
-    <button class="btn btn-primary" id="hugBtn">
-      Klik untuk berpelukan <span aria-hidden="true">♡</span>
-    </button>
-  </div>
+    <div class="btn-row" id="hugAction">
 
+        <button class="btn primary" id="hugBtn">
+            Klik untuk berpelukan ♡
+        </button>
 
-  <!-- ANIMASI KARAKTER -->
-  <div class="scene-shell">
+    </div>
 
-  <svg class="scene"
-       id="scene"
-       viewBox="0 0 700 390"
-       role="img"
-       aria-label="Gaby adalah karakter perempuan berambut panjang dengan gaun merah muda. Irfan adalah karakter laki-laki berambut pendek dengan baju biru. Keduanya berjalan saling mendekat lalu berpelukan.">
 
-    <defs>
+    <!-- ANIMASI PASANGAN -->
 
-      <radialGradient id="glowGrad">
-        <stop offset="0" stop-color="#f5cbdc" stop-opacity=".9"/>
-        <stop offset="1" stop-color="#f5cbdc" stop-opacity="0"/>
-      </radialGradient>
+    <div class="scene-wrap">
 
-      <linearGradient id="girlDress" x1="0" y1="0" x2="1" y2="1">
-        <stop stop-color="#f3b1c7"/>
-        <stop offset="1" stop-color="#d9789d"/>
-      </linearGradient>
+        <svg class="scene"
+             id="scene"
+             viewBox="0 0 700 380"
+             role="img"
+             aria-label="Gaby adalah perempuan dengan rambut panjang dan gaun merah muda. Irfan adalah laki-laki dengan rambut pendek dan baju biru.">
 
-      <linearGradient id="boyShirt" x1="0" y1="0" x2="1" y2="1">
-        <stop stop-color="#aeb8e5"/>
-        <stop offset="1" stop-color="#7785bd"/>
-      </linearGradient>
+            <defs>
 
-    </defs>
+                <radialGradient id="glow">
+                    <stop stop-color="#f4cbdc" stop-opacity=".75"/>
+                    <stop offset="1" stop-color="#f4cbdc" stop-opacity="0"/>
+                </radialGradient>
 
+                <linearGradient id="dress" x2="1" y2="1">
+                    <stop stop-color="#f3b1c7"/>
+                    <stop offset="1" stop-color="#d9789d"/>
+                </linearGradient>
 
-    <ellipse class="back-glow"
-             cx="350" cy="230"
-             rx="215" ry="150"
-             fill="url(#glowGrad)"/>
+                <linearGradient id="shirt" x2="1" y2="1">
+                    <stop stop-color="#aeb8e5"/>
+                    <stop offset="1" stop-color="#7785bd"/>
+                </linearGradient>
 
-    <ellipse class="hug-halo"
-             cx="350" cy="215"
-             rx="180" ry="145"
-             fill="#f4c8dc"
-             opacity=".55"/>
+            </defs>
 
-    <ellipse class="floor-shadow"
-             cx="350" cy="350"
-             rx="210" ry="19"/>
 
+            <ellipse cx="350" cy="220"
+                     rx="220" ry="150"
+                     fill="url(#glow)"/>
 
-    <g class="speech">
+            <ellipse class="ground"
+                     cx="350" cy="345"
+                     rx="205" ry="17"
+                     fill="#b48ba0"
+                     opacity=".17"/>
 
-      <rect x="265" y="20"
-            width="170" height="43"
-            rx="21"
-            fill="#fff"
-            stroke="#f1dce6"/>
 
-      <path d="M340 62l10 10 10-10"
-            fill="#fff"
-            stroke="#f1dce6"
-            stroke-linejoin="round"/>
+            <!-- BALON PESAN -->
 
-      <text x="350" y="47"
-            text-anchor="middle"
-            font-family="Playfair Display,serif"
-            font-size="17"
-            fill="#d47799">
-        I love you, Gaby ♥
-      </text>
+            <g class="bubble">
 
-    </g>
+                <rect x="264" y="17"
+                      width="172" height="42"
+                      rx="21"
+                      fill="#fff"
+                      stroke="#f1dce6"/>
 
+                <text x="350" y="44"
+                      text-anchor="middle"
+                      font-family="Georgia,serif"
+                      font-size="17"
+                      fill="#d47799">
+                    I love you, Gaby ♥
+                </text>
 
-    <g class="heart-pop" font-size="25" fill="#e77da3">
-      <text x="245" y="160">♥</text>
-    </g>
+            </g>
 
-    <g class="heart-pop" font-size="20" fill="#c39acb">
-      <text x="435" y="145">♥</text>
-    </g>
 
-    <g class="heart-pop" font-size="17" fill="#ec9bb7">
-      <text x="310" y="110">♥</text>
-    </g>
+            <!-- HATI -->
 
-    <g class="heart-pop" font-size="23" fill="#e77da3">
-      <text x="390" y="105">♥</text>
-    </g>
+            <g class="floating-hearts" fill="#e77da3">
 
+                <text x="300" y="115" font-size="22">♥</text>
+                <text x="410" y="145" font-size="25">♥</text>
+                <text x="350" y="95" font-size="17">♥</text>
 
-    <!-- KARAKTER PEREMPUAN: GABY -->
+            </g>
 
-    <g id="girl"
-       aria-label="Gaby, karakter perempuan dengan rambut panjang dan gaun merah muda">
 
-      <path class="girl-hair"
-            d="M207 86 Q207 34 257 34 Q307 34 306 91 L300 154 Q286 177 274 148 L224 151 Q210 173 198 149Z"/>
+            <!-- GABY: KARAKTER PEREMPUAN -->
 
-      <g class="legs">
+            <g id="girl">
 
-        <path class="skin leg-left"
-              d="M230 268 Q228 305 225 337 L222 354 Q223 362 239 362 L246 354 244 337 252 270Z"/>
+                <!-- Rambut belakang -->
 
-        <path class="skin leg-right"
-              d="M264 268 L270 337 267 354 Q268 362 284 361 L290 354 285 336 282 268Z"/>
+                <path d="M204 87 Q204 32 255 32
+                         Q307 32 307 91
+                         L300 155 Q286 177 274 148
+                         L224 151 Q210 173 198 149Z"
+                      fill="#684653"/>
 
-        <path class="shoe"
-              d="M220 352 Q215 359 216 365 Q230 371 248 364 L247 356Z"/>
 
-        <path class="shoe"
-              d="M267 354 Q264 362 267 367 Q282 372 297 364 L290 355Z"/>
+                <!-- Kaki -->
 
-      </g>
+                <g class="legs">
 
+                    <path class="leg skin"
+                          d="M230 263 L226 332 L221 350
+                             Q223 360 239 359 L246 351
+                             L244 332 L252 264Z"/>
 
-      <path class="body-main"
-            d="M218 151 Q246 139 278 151 L294 256 Q286 277 247 278 Q211 277 202 256Z"
-            fill="url(#girlDress)"/>
+                    <path class="leg skin"
+                          d="M264 263 L270 332 L267 351
+                             Q269 360 284 359 L290 351
+                             L285 332 L282 264Z"/>
 
-      <path d="M221 157 Q248 172 277 157"
-            fill="none"
-            stroke="#ffdce7"
-            stroke-width="5"
-            stroke-linecap="round"
-            opacity=".7"/>
+                    <path d="M220 350 Q214 359 218 365
+                             Q232 370 248 363 L246 354Z"
+                          fill="#805c71"/>
 
+                    <path d="M267 351 Q264 359 268 365
+                             Q282 370 297 362 L290 354Z"
+                          fill="#805c71"/>
 
-      <g class="arm-back">
+                </g>
 
-        <path class="skin"
-              d="M211 166 Q195 175 196 203 L199 239 Q200 251 210 249 Q219 247 216 236 L214 204 229 181Z"/>
 
-        <path class="skin"
-              d="M201 239 Q193 248 201 257 Q210 263 216 253 L216 242Z"/>
+                <!-- Gaun -->
 
-      </g>
+                <path d="M218 151 Q246 139 278 151
+                         L294 256 Q286 277 247 278
+                         Q211 277 202 256Z"
+                      fill="url(#dress)"/>
 
+                <path d="M221 157 Q248 172 277 157"
+                      fill="none"
+                      stroke="#ffdfeb"
+                      stroke-width="5"
+                      stroke-linecap="round"/>
 
-      <g class="arm-front">
 
-        <path class="skin"
-              d="M281 165 Q300 174 301 199 L294 232 Q291 245 281 240 Q274 236 280 225 L283 200 268 184Z"/>
+                <!-- Tangan belakang -->
 
-        <path class="skin"
-              d="M281 230 Q275 238 282 247 Q291 251 296 241 L295 231Z"/>
+                <g class="arm back">
 
-      </g>
+                    <path class="skin"
+                          d="M211 166 Q195 175 196 203
+                             L199 239 Q200 251 210 249
+                             Q219 247 216 236 L214 204 229 181Z"/>
 
+                </g>
 
-      <path class="skin"
-            d="M243 126 L243 151 Q255 163 270 150 L267 124Z"/>
 
+                <!-- Tangan depan -->
 
-      <g class="head-girl">
+                <g class="arm front">
 
-        <ellipse class="skin"
-                 cx="255" cy="91"
-                 rx="43" ry="51"/>
+                    <path class="skin"
+                          d="M281 165 Q300 174 301 199
+                             L294 232 Q291 245 281 240
+                             Q274 236 280 225 L283 200 268 184Z"/>
 
-        <path class="girl-hair"
-              d="M212 94 Q203 42 252 34 Q300 30 300 79 Q284 62 267 63 Q241 80 214 69Z"/>
+                </g>
 
-        <path class="girl-hair"
-              d="M213 83 Q199 110 211 151 Q221 163 229 147 L225 102Z"/>
 
-        <path class="girl-hair"
-              d="M294 78 Q312 106 297 150 Q289 161 282 146 L286 103Z"/>
+                <!-- Leher -->
 
-        <ellipse class="eye-svg" cx="240" cy="96" rx="3.3" ry="4.5"/>
-        <ellipse class="eye-svg" cx="270" cy="96" rx="3.3" ry="4.5"/>
+                <path class="skin"
+                      d="M243 126 L243 151
+                         Q255 163 270 150 L267 124Z"/>
 
-        <ellipse class="cheek" cx="229" cy="110" rx="8" ry="4.5"/>
-        <ellipse class="cheek" cx="281" cy="110" rx="8" ry="4.5"/>
 
-        <path d="M249 119 Q255 124 262 118"
-              fill="none"
-              stroke="#a85e72"
-              stroke-width="2"
-              stroke-linecap="round"/>
+                <!-- Kepala -->
 
-        <path d="M214 76 Q223 47 254 46"
-              fill="none"
-              stroke="#8c6370"
-              stroke-width="3"
-              stroke-linecap="round"
-              opacity=".5"/>
+                <g class="head">
 
-      </g>
+                    <ellipse class="skin"
+                             cx="255" cy="91"
+                             rx="43" ry="51"/>
 
-    </g>
+                    <!-- Rambut -->
 
+                    <path d="M212 94 Q203 42 252 34
+                             Q300 30 300 79
+                             Q284 62 267 63
+                             Q241 80 214 69Z"
+                          fill="#684653"/>
 
-    <!-- KARAKTER LAKI-LAKI: IRFAN -->
+                    <path d="M213 83 Q199 110 211 151
+                             Q221 163 229 147 L225 102Z"
+                          fill="#684653"/>
 
-    <g id="boy"
-       aria-label="Irfan, karakter laki-laki dengan rambut pendek dan baju biru">
+                    <path d="M294 78 Q312 106 297 150
+                             Q289 161 282 146 L286 103Z"
+                          fill="#684653"/>
 
-      <path class="boy-hair"
-            d="M392 83 Q393 34 444 34 Q492 34 493 83 L485 145 Q470 161 458 143 L414 146 Q399 161 388 142Z"/>
 
-      <g class="legs">
+                    <!-- Mata -->
 
-        <path class="skin leg-left"
-              d="M416 267 L413 337 409 354 Q410 363 426 362 L433 354 431 336 438 267Z"/>
+                    <ellipse cx="240" cy="96"
+                             rx="3.3" ry="4.5"
+                             fill="#49353b"/>
 
-        <path class="skin leg-right"
-              d="M452 267 L459 337 456 354 Q457 363 474 361 L480 354 474 336 470 267Z"/>
+                    <ellipse cx="270" cy="96"
+                             rx="3.3" ry="4.5"
+                             fill="#49353b"/>
 
-        <path class="shoe"
-              d="M408 352 Q403 360 405 366 Q420 372 437 364 L433 355Z"/>
 
-        <path class="shoe"
-              d="M456 354 Q453 362 456 367 Q472 372 487 364 L480 355Z"/>
+                    <!-- Pipi -->
 
-      </g>
+                    <ellipse cx="229" cy="110"
+                             rx="8" ry="4.5"
+                             fill="#e98e9c" opacity=".5"/>
 
+                    <ellipse cx="281" cy="110"
+                             rx="8" ry="4.5"
+                             fill="#e98e9c" opacity=".5"/>
 
-      <path class="body-main"
-            d="M402 151 Q438 139 474 151 L490 256 Q480 277 444 278 Q407 277 391 256Z"
-            fill="url(#boyShirt)"/>
 
-      <path d="M405 157 Q440 171 472 157"
-            fill="none"
-            stroke="#e4e8ff"
-            stroke-width="5"
-            stroke-linecap="round"
-            opacity=".7"/>
+                    <!-- Senyum -->
 
+                    <path d="M249 119 Q255 124 262 118"
+                          fill="none"
+                          stroke="#a85e72"
+                          stroke-width="2"
+                          stroke-linecap="round"/>
 
-      <g class="arm-back">
+                </g>
 
-        <path class="skin"
-              d="M401 166 Q383 175 382 202 L389 236 Q391 249 401 245 Q409 241 403 229 L400 202 419 183Z"/>
+            </g>
 
-        <path class="skin"
-              d="M390 234 Q383 244 390 253 Q399 260 405 249 L402 238Z"/>
 
-      </g>
+            <!-- IRFAN: KARAKTER LAKI-LAKI -->
 
+            <g id="boy">
 
-      <g class="arm-front">
+                <!-- Rambut -->
 
-        <path class="skin"
-              d="M476 165 Q493 174 495 199 L488 232 Q485 245 475 240 Q468 236 474 225 L477 200 462 184Z"/>
+                <path d="M392 83 Q393 34 444 34
+                         Q492 34 493 83
+                         L485 145 Q470 161 458 143
+                         L414 146 Q399 161 388 142Z"
+                      fill="#44353d"/>
 
-        <path class="skin"
-              d="M476 230 Q469 238 476 247 Q485 251 490 241 L489 231Z"/>
 
-      </g>
+                <!-- Kaki -->
 
+                <g class="legs">
 
-      <path class="skin"
-            d="M426 126 L426 151 Q441 163 456 150 L453 124Z"/>
+                    <path class="leg skin"
+                          d="M416 263 L413 332 L409 350
+                             Q410 360 426 359 L433 351
+                             L431 332 L438 264Z"/>
 
+                    <path class="leg skin"
+                          d="M452 263 L459 332 L456 350
+                             Q457 360 474 359 L480 351
+                             L474 332 L470 264Z"/>
 
-      <g class="head-boy">
+                    <path d="M408 350 Q403 359 406 365
+                             Q420 370 437 362 L433 354Z"
+                          fill="#805c71"/>
 
-        <ellipse class="skin"
-                 cx="441" cy="91"
-                 rx="42" ry="50"/>
+                    <path d="M456 351 Q453 359 457 365
+                             Q472 370 487 362 L480 354Z"
+                          fill="#805c71"/>
 
-        <path class="boy-hair"
-              d="M399 83 Q397 39 441 36 Q488 34 485 81 Q465 70 448 67 Q424 77 399 70Z"/>
+                </g>
 
-        <path class="boy-hair"
-              d="M402 69 Q417 51 435 55 L429 78 Q415 84 402 81Z"/>
 
-        <ellipse class="eye-svg" cx="427" cy="96" rx="3.2" ry="4.5"/>
-        <ellipse class="eye-svg" cx="456" cy="96" rx="3.2" ry="4.5"/>
+                <!-- Baju -->
 
-        <ellipse class="cheek" cx="416" cy="110" rx="7" ry="4"/>
-        <ellipse class="cheek" cx="468" cy="110" rx="7" ry="4"/>
+                <path d="M402 151 Q438 139 474 151
+                         L490 256 Q480 277 444 278
+                         Q407 277 391 256Z"
+                      fill="url(#shirt)"/>
 
-        <path d="M435 119 Q442 124 449 118"
-              fill="none"
-              stroke="#a85e72"
-              stroke-width="2"
-              stroke-linecap="round"/>
+                <path d="M405 157 Q440 171 472 157"
+                      fill="none"
+                      stroke="#e4e8ff"
+                      stroke-width="5"
+                      stroke-linecap="round"/>
 
-      </g>
 
-    </g>
+                <!-- Tangan belakang -->
 
-  </svg>
+                <g class="arm back">
 
-  </div>
+                    <path class="skin"
+                          d="M401 166 Q383 175 382 202
+                             L389 236 Q391 249 401 245
+                             Q409 241 403 229 L400 202 419 183Z"/>
 
+                </g>
 
-  <p class="caption" id="caption">
-    Dua orang yang saling merindukan, sebentar lagi bertemu dalam pelukan.
-  </p>
 
+                <!-- Tangan depan -->
 
-  <div class="btn-row" id="letterAction" style="display:none">
+                <g class="arm front">
 
-    <button class="btn btn-quiet" id="letterBtn">
-      Baca surat kecilku
-    </button>
+                    <path class="skin"
+                          d="M476 165 Q493 174 495 199
+                             L488 232 Q485 245 475 240
+                             Q468 236 474 225 L477 200 462 184Z"/>
 
-    <button class="btn btn-primary" id="againBtn">
-      Peluk sekali lagi ♥
-    </button>
+                </g>
 
-  </div>
 
-  <div class="signature">
-    A HUG, EVEN FROM A LITTLE WEBSITE
-  </div>
+                <!-- Leher -->
+
+                <path class="skin"
+                      d="M426 126 L426 151
+                         Q441 163 456 150 L453 124Z"/>
+
+
+                <!-- Kepala -->
+
+                <g class="head">
+
+                    <ellipse class="skin"
+                             cx="441" cy="91"
+                             rx="42" ry="50"/>
+
+
+                    <!-- Rambut pendek -->
+
+                    <path d="M399 83 Q397 39 441 36
+                             Q488 34 485 81
+                             Q465 70 448 67
+                             Q424 77 399 70Z"
+                          fill="#44353d"/>
+
+                    <path d="M402 69 Q417 51 435 55
+                             L429 78 Q415 84 402 81Z"
+                          fill="#44353d"/>
+
+
+                    <!-- Mata -->
+
+                    <ellipse cx="427" cy="96"
+                             rx="3.2" ry="4.5"
+                             fill="#49353b"/>
+
+                    <ellipse cx="456" cy="96"
+                             rx="3.2" ry="4.5"
+                             fill="#49353b"/>
+
+
+                    <!-- Pipi -->
+
+                    <ellipse cx="416" cy="110"
+                             rx="7" ry="4"
+                             fill="#e98e9c" opacity=".5"/>
+
+                    <ellipse cx="468" cy="110"
+                             rx="7" ry="4"
+                             fill="#e98e9c" opacity=".5"/>
+
+
+                    <!-- Senyum -->
+
+                    <path d="M435 119 Q442 124 449 118"
+                          fill="none"
+                          stroke="#a85e72"
+                          stroke-width="2"
+                          stroke-linecap="round"/>
+
+                </g>
+
+            </g>
+
+        </svg>
+
+    </div>
+
+
+    <p class="caption" id="caption">
+        Dua orang yang saling merindukan, sebentar lagi bertemu dalam pelukan.
+    </p>
+
+
+    <div class="btn-row" id="letterAction" style="display:none">
+
+        <button class="btn quiet" id="letterBtn">
+            Baca surat kecilku
+        </button>
+
+        <button class="btn primary" id="againBtn">
+            Peluk sekali lagi ♥
+        </button>
+
+    </div>
+
+
+    <div class="signature">
+        A HUG, EVEN FROM A LITTLE WEBSITE
+    </div>
 
 </section>
 
 
 <!-- HALAMAN SURAT -->
+
 <section class="card page" id="letterPage">
 
-  <div class="eyebrow">A LETTER FROM MY HEART</div>
+    <div class="eyebrow">A LETTER FROM MY HEART</div>
 
-  <h2>Dear, Gaby ♥</h2>
+    <h2>Dear, Gaby ♥</h2>
 
-  <div class="letter">
+    <div class="letter">
 
-    <div class="salute">Untuk sayangku</div>
+        <div style="font:600 25px 'Playfair Display',serif;
+                    color:#df86a5;
+                    text-align:center;
+                    margin-bottom:12px">
+            Untuk sayangku
+        </div>
 
-    Aku mungkin nggak selalu bisa memberikan hal yang sempurna,
-    tapi aku ingin selalu berusaha memberikan yang terbaik buat kamu.
+        Aku mungkin nggak selalu bisa memberikan hal yang sempurna,
+        tapi aku ingin selalu berusaha memberikan yang terbaik buat kamu.
 
-    <br><br>
+        <br><br>
 
-    Terima kasih sudah hadir dan menjadi bagian dari hari-hariku.
-    Aku senang bisa mengenal kamu, bercanda bersama kamu,
-    dan melewati banyak hal bersama kamu.
+        Terima kasih sudah hadir dan menjadi bagian dari hari-hariku.
+        Aku senang bisa mengenal kamu, bercanda bersama kamu,
+        dan melewati banyak hal bersama kamu.
 
-    <br><br>
+        <br><br>
 
-    Semoga kita selalu bisa saling memahami, saling menjaga,
-    dan terus memilih satu sama lain.
+        Semoga kita selalu bisa saling memahami, saling menjaga,
+        dan terus memilih satu sama lain.
 
-    <br><br>
+        <br><br>
 
-    I love you, Gaby. ♥
-    <br><br>
+        I love you, Gaby. ♥
 
-    <strong style="display:block;text-align:right;color:#bd7895;font-family:'Playfair Display',serif;font-size:19px">
-      With love, Irfan.
-    </strong>
+        <strong>With love, Irfan.</strong>
 
-  </div>
+    </div>
 
-  <div class="btn-row">
-    <button class="btn btn-primary" id="backBtn">
-      Kembali ke kejutan ♥
-    </button>
-  </div>
+    <div class="btn-row">
 
-  <div class="signature">ALWAYS WITH LOVE</div>
+        <button class="btn primary" id="backBtn">
+            Kembali ke kejutan ♥
+        </button>
+
+    </div>
+
+    <div class="signature">ALWAYS WITH LOVE</div>
 
 </section>
 
