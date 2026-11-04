@@ -1,179 +1,248 @@
-const $ = id => document.getElementById(id);
+document.addEventListener("DOMContentLoaded", () => {
 
-const home = $("home");
-const hugPage = $("hugPage");
-const letterPage = $("letterPage");
+    const byId = id => document.getElementById(id);
 
-const scene = $("scene");
-const typed = $("typed");
-const hugAction = $("hugAction");
-const hugBtn = $("hugBtn");
+    const pages = [
+        "homePage",
+        "surprisePage",
+        "letterPage"
+    ].map(byId);
 
-const caption = $("caption");
-const letterAction = $("letterAction");
-const ambient = $("ambient");
+    const openButton = byId("openButton");
+    const hugButton = byId("hugButton");
 
-const message = "Gaby, kalau hari ini terasa melelahkan, semoga kamu ingat kalau ada seseorang yang selalu ingin melihat kamu bahagia. Terima kasih sudah hadir di hidupku. Aku mungkin belum sempurna, tapi aku akan terus belajar menyayangimu dengan lebih baik. Sekarang, boleh aku kasih kamu satu pelukan? ♥";
+    const typedMessage = byId("typedMessage");
+    const scene = byId("coupleScene");
 
-let typingTimer = null;
-let hugTimers = [];
+    const caption = byId("caption");
+    const afterHug = byId("afterHug");
 
-function showPage(page) {
-    [home, hugPage, letterPage].forEach(p => {
-        p.classList.remove("active");
+    const floatingLayer = byId("floatingLayer");
+
+
+    const message =
+    "Gaby, kalau hari ini terasa melelahkan, semoga kamu ingat kalau ada seseorang yang selalu ingin melihat kamu bahagia. Terima kasih sudah hadir di hidupku. Aku mungkin belum sempurna, tapi aku akan terus belajar menyayangimu dengan lebih baik. Sekarang, boleh aku kasih kamu satu pelukan? ♥";
+
+
+    let typingTimer = null;
+    let hugTimers = [];
+
+
+    // PINDAH HALAMAN
+    function showPage(pageId) {
+
+        pages.forEach(page => {
+            page.classList.toggle(
+                "active",
+                page.id === pageId
+            );
+        });
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    }
+
+
+    // MEMBERSIHKAN TIMER
+    function clearHugTimers() {
+
+        hugTimers.forEach(clearTimeout);
+
+        hugTimers = [];
+
+    }
+
+
+    // MENAMPILKAN PESAN
+    function startTyping() {
+
+        clearInterval(typingTimer);
+        clearHugTimers();
+
+        typedMessage.textContent = "";
+
+        hugButton.classList.add("hidden");
+        afterHug.classList.add("hidden");
+
+        hugButton.disabled = false;
+
+        hugButton.textContent = "Klik untuk berpelukan ♥";
+
+        scene.classList.remove(
+            "walking",
+            "hugging",
+            "complete"
+        );
+
+        caption.textContent =
+        "Dua orang yang saling menyayangi, sebentar lagi bertemu dalam pelukan.";
+
+        let index = 0;
+
+        typingTimer = setInterval(() => {
+
+            typedMessage.textContent +=
+            message.charAt(index);
+
+            index += 1;
+
+            if (index >= message.length) {
+
+                clearInterval(typingTimer);
+
+                hugButton.classList.remove("hidden");
+
+            }
+
+        }, 28);
+
+    }
+
+
+    // ANIMASI PELUKAN
+    function doHug() {
+
+        clearHugTimers();
+
+        scene.classList.remove(
+            "walking",
+            "hugging",
+            "complete"
+        );
+
+        void scene.getBoundingClientRect();
+
+        hugButton.disabled = true;
+
+        hugButton.textContent =
+        "Mendekat satu sama lain...";
+
+        afterHug.classList.add("hidden");
+
+        caption.textContent =
+        "Pelan-pelan, mereka saling mendekat.";
+
+        scene.classList.add("walking");
+
+
+        // Karakter mulai berjalan
+        hugTimers.push(setTimeout(() => {
+
+            scene.classList.remove("walking");
+
+            scene.classList.add("hugging");
+
+            hugButton.textContent =
+            "Berpelukan... ♥";
+
+            caption.textContent =
+            "Akhirnya, satu pelukan hangat untuk Gaby.";
+
+        }, 1400));
+
+
+        // Animasi selesai
+        hugTimers.push(setTimeout(() => {
+
+            scene.classList.add("complete");
+
+            hugButton.disabled = false;
+
+            hugButton.textContent =
+            "Peluk lagi ♥";
+
+            afterHug.classList.remove("hidden");
+
+        }, 2250));
+
+    }
+
+
+    // TOMBOL BUKA KEJUTAN
+    openButton.addEventListener("click", () => {
+
+        showPage("surprisePage");
+
+        startTyping();
+
     });
 
-    page.classList.add("active");
 
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
+    // TOMBOL PELUK
+    hugButton.addEventListener("click", doHug);
+
+
+    // TOMBOL PELUK LAGI
+    byId("againButton").addEventListener("click", doHug);
+
+
+    // BUKA SURAT
+    byId("letterButton").addEventListener("click", () => {
+
+        showPage("letterPage");
+
     });
-}
 
 
-// Tombol mulai
-$("startBtn").addEventListener("click", () => {
-    showPage(hugPage);
-    beginTyping();
+    // KEMBALI KE KEJUTAN
+    byId("backButton").addEventListener("click", () => {
+
+        showPage("surprisePage");
+
+        startTyping();
+
+    });
+
+
+    // ANIMASI HATI MELAYANG
+    function addParticle() {
+
+        const particle = document.createElement("span");
+
+        particle.className = "particle";
+
+        particle.textContent =
+        Math.random() > 0.5 ? "♥" : "♡";
+
+        particle.style.left =
+        `${Math.random() * 100}%`;
+
+        particle.style.fontSize =
+        `${11 + Math.random() * 10}px`;
+
+        particle.style.setProperty(
+            "--duration",
+            `${9 + Math.random() * 6}s`
+        );
+
+        particle.style.setProperty(
+            "--drift",
+            `${Math.random() * 90 - 45}px`
+        );
+
+        floatingLayer.appendChild(particle);
+
+        setTimeout(() => {
+
+            particle.remove();
+
+        }, 16000);
+
+    }
+
+
+    // MENJALANKAN HATI MELAYANG
+    if (
+        !window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        ).matches
+    ) {
+
+        setInterval(addParticle, 1200);
+
+    }
+
 });
-
-
-// Menampilkan pesan satu per satu
-function beginTyping() {
-
-    clearInterval(typingTimer);
-
-    hugTimers.forEach(clearTimeout);
-    hugTimers = [];
-
-    typed.textContent = "";
-
-    hugAction.classList.remove("show");
-    hugAction.style.display = "none";
-
-    letterAction.style.display = "none";
-
-    scene.classList.remove("walking", "hugging", "complete");
-
-    hugBtn.disabled = false;
-    hugBtn.textContent = "Klik untuk berpelukan ♡";
-
-    caption.textContent = "Dua orang yang saling merindukan, sebentar lagi bertemu dalam pelukan.";
-
-    let i = 0;
-
-    typingTimer = setInterval(() => {
-
-        typed.textContent += message.charAt(i);
-
-        i++;
-
-        if (i >= message.length) {
-
-            clearInterval(typingTimer);
-
-            hugAction.style.display = "flex";
-
-            requestAnimationFrame(() => {
-                hugAction.classList.add("show");
-            });
-        }
-
-    }, 32);
-}
-
-
-// Animasi berjalan dan berpelukan
-function doHug() {
-
-    hugTimers.forEach(clearTimeout);
-    hugTimers = [];
-
-    scene.classList.remove("walking", "hugging", "complete");
-
-    void scene.getBoundingClientRect();
-
-    hugBtn.disabled = true;
-    hugBtn.textContent = "Mendekat satu sama lain…";
-
-    caption.textContent = "Pelan-pelan, mereka saling mendekat.";
-
-    letterAction.style.display = "none";
-
-    scene.classList.add("walking");
-
-    hugTimers.push(setTimeout(() => {
-
-        scene.classList.remove("walking");
-        scene.classList.add("hugging");
-
-        hugBtn.textContent = "Berpelukan… ♥";
-
-        caption.textContent = "Akhirnya, satu pelukan hangat untuk Gaby.";
-
-    }, 1650));
-
-
-    hugTimers.push(setTimeout(() => {
-
-        scene.classList.add("complete");
-
-        hugBtn.disabled = false;
-        hugBtn.textContent = "Peluk lagi ♥";
-
-        letterAction.style.display = "flex";
-
-    }, 2850));
-}
-
-
-// Tombol peluk
-hugBtn.addEventListener("click", doHug);
-
-$("againBtn").addEventListener("click", doHug);
-
-
-// Membuka surat
-$("letterBtn").addEventListener("click", () => {
-    showPage(letterPage);
-});
-
-
-// Kembali ke halaman kejutan
-$("backBtn").addEventListener("click", () => {
-    showPage(hugPage);
-    beginTyping();
-});
-
-
-// Animasi hati yang melayang
-function addParticle() {
-
-    const el = document.createElement("span");
-
-    el.className = "particle";
-
-    el.textContent = ["♥", "✦", "♡"][Math.floor(Math.random() * 3)];
-
-    el.style.left = Math.random() * 100 + "%";
-
-    el.style.fontSize = 11 + Math.random() * 12 + "px";
-
-    el.style.setProperty("--dur", 9 + Math.random() * 7 + "s");
-
-    el.style.setProperty("--drift", Math.random() * 100 - 50 + "px");
-
-    ambient.appendChild(el);
-
-    setTimeout(() => {
-        el.remove();
-    }, 17000);
-}
-
-
-// Menjalankan animasi hati
-if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    setInterval(addParticle, 1100);
-}
-```
