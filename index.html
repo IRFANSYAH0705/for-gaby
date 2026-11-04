@@ -3,1084 +3,410 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#fff1f6">
-<title>For Gaby ❤️</title>
+<meta name="theme-color" content="#fff7fa">
+<meta name="description" content="A little romantic surprise made with love for Gaby.">
+
+<title>For Gaby — A Little Love Story</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-:root {
-    --pink: #e879a0;
-    --purple: #b18bd0;
-    --dark: #654458;
-    --light: #fff8fb;
-}
-
-body {
-    min-height: 100vh;
-    font-family: 'DM Sans', sans-serif;
-    color: var(--dark);
-    background: linear-gradient(135deg, #fff0f5, #f3edff, #fff6ed);
-    background-size: 300% 300%;
-    animation: backgroundMove 15s ease infinite;
-    overflow-x: hidden;
-}
-
-@keyframes backgroundMove {
-    0%,100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-}
-
-#hearts {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    overflow: hidden;
-    z-index: 0;
-}
-
-.floating-heart {
-    position: absolute;
-    bottom: -40px;
-    animation: floatHeart linear forwards;
-}
-
-@keyframes floatHeart {
-    to {
-        transform: translateY(-110vh) rotate(360deg);
-        opacity: 0;
-    }
-}
-
-.container {
-    position: relative;
-    z-index: 1;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 25px 15px;
-}
-
-header {
-    width: min(100%, 850px);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 25px;
-}
-
-.logo {
-    font: 700 23px 'Playfair Display', serif;
-    color: #a66c89;
-}
-
-.logo span {
-    color: var(--pink);
-}
-
-.badge {
-    background: #ffffffaa;
-    padding: 9px 16px;
-    border-radius: 30px;
-    font-size: 10px;
-    letter-spacing: 2px;
-    border: 1px solid white;
-}
-
-main {
-    width: min(100%, 760px);
-    margin: auto;
-}
-
-.page {
-    display: none;
-    position: relative;
-    text-align: center;
-    padding: 55px 30px;
-    border-radius: 35px;
-    background: #ffffffbd;
-    border: 1px solid white;
-    box-shadow: 0 25px 80px #95657c20;
-    backdrop-filter: blur(20px);
-    animation: appear .7s ease;
-    overflow: hidden;
-}
-
-.page.active {
-    display: block;
-}
-
-@keyframes appear {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.label {
-    color: #bb7795;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-}
-
-h1, h2 {
-    font-family: 'Playfair Display', serif;
-}
-
-h1 {
-    font-size: clamp(40px, 8vw, 65px);
-    margin: 15px 0;
-    line-height: 1.1;
-}
-
-h1 span {
-    color: var(--pink);
-    font-style: italic;
-}
-
-h2 {
-    font-size: clamp(30px, 6vw, 43px);
-    color: #98617e;
-    margin: 15px 0;
-}
-
-.description {
-    color: #987d8c;
-    line-height: 1.9;
-    max-width: 500px;
-    margin: auto;
-    font-size: 15px;
-}
-
-button {
-    border: none;
-    cursor: pointer;
-    font-family: inherit;
-    font-weight: 700;
-    padding: 15px 25px;
-    border-radius: 40px;
-    transition: .3s;
-    font-size: 14px;
-}
-
-button:hover {
-    transform: translateY(-4px);
-}
-
-.primary {
-    color: white;
-    background: linear-gradient(110deg, #e879a0, #b18bd0);
-    box-shadow: 0 10px 25px #d77ea34a;
-}
-
-.secondary {
-    background: white;
-    color: #a66c89;
-    border: 1px solid #f2dce6;
-}
-
-.buttons {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    flex-wrap: wrap;
-    margin-top: 28px;
-}
-
-/* TEDDY BEAR */
-
-.bear-area {
-    height: 230px;
-    display: grid;
-    place-items: center;
-    position: relative;
-    margin: 15px 0;
-}
-
-.bear {
-    position: relative;
-    width: 140px;
-    height: 190px;
-    animation: bearMove 2.5s ease-in-out infinite;
-    filter: drop-shadow(0 15px 12px #80504430);
-}
-
-@keyframes bearMove {
-    50% {
-        transform: translateY(-13px) rotate(4deg);
-    }
-}
-
-.ear {
-    position: absolute;
-    top: 8px;
-    width: 45px;
-    height: 45px;
-    background: #b77b58;
-    border: 5px solid #9e6749;
-    border-radius: 50%;
-}
-
-.ear.left { left: 8px; }
-.ear.right { right: 8px; }
-
-.bear-head {
-    position: absolute;
-    top: 17px;
-    left: 17px;
-    width: 106px;
-    height: 100px;
-    background: #d5a078;
-    border-radius: 50%;
-    z-index: 2;
-}
-
-.bear-eye {
-    position: absolute;
-    top: 42px;
-    width: 8px;
-    height: 9px;
-    background: #443139;
-    border-radius: 50%;
-}
-
-.bear-eye.left { left: 28px; }
-.bear-eye.right { right: 28px; }
-
-.bear-nose {
-    position: absolute;
-    top: 59px;
-    left: 48px;
-    width: 12px;
-    height: 9px;
-    background: #49343a;
-    border-radius: 50%;
-}
-
-.bear-mouth {
-    position: absolute;
-    top: 69px;
-    left: 48px;
-    width: 13px;
-    height: 8px;
-    border-bottom: 2px solid #80505e;
-    border-radius: 50%;
-}
-
-.bear-body {
-    position: absolute;
-    top: 105px;
-    left: 22px;
-    width: 96px;
-    height: 80px;
-    background: #bd835d;
-    border-radius: 45px 45px 30px 30px;
-}
-
-.bear-belly {
-    position: absolute;
-    top: 15px;
-    left: 27px;
-    width: 43px;
-    height: 48px;
-    background: #efd0ae;
-    border-radius: 50%;
-}
-
-.bear-arm {
-    position: absolute;
-    top: 112px;
-    width: 35px;
-    height: 60px;
-    background: #bd835d;
-    border-radius: 30px;
-}
-
-.bear-arm.left {
-    left: 0;
-    transform-origin: top;
-    animation: wave 1.5s infinite ease-in-out;
-}
-
-.bear-arm.right { right: 0; }
-
-@keyframes wave {
-    50% { transform: rotate(35deg); }
-}
-
-.bear-foot {
-    position: absolute;
-    bottom: 0;
-    width: 45px;
-    height: 25px;
-    background: #a96e4d;
-    border-radius: 50%;
-}
-
-.bear-foot.left { left: 15px; }
-.bear-foot.right { right: 15px; }
-
-.bear-heart {
-    position: absolute;
-    top: 110px;
-    left: 57px;
-    z-index: 5;
-    font-size: 24px;
-}
-
-/* ROMANTIC MESSAGE */
-
-#message {
-    min-height: 75px;
-    line-height: 2;
-    color: #967487;
-    font-size: 15px;
-    margin: 20px auto;
-    max-width: 540px;
-}
-
-/* COUPLE ANIMATION */
-
-.scene {
-    height: 330px;
-    max-width: 550px;
-    margin: 20px auto;
-    position: relative;
-    overflow: hidden;
-}
-
-.scene-glow {
-    position: absolute;
-    width: 300px;
-    height: 220px;
-    background: #ffd7e8;
-    filter: blur(45px);
-    border-radius: 50%;
-    left: 50%;
-    top: 50px;
-    transform: translateX(-50%);
-}
-
-.ground {
-    position: absolute;
-    bottom: 30px;
-    left: 10%;
-    right: 10%;
-    height: 20px;
-    background: #a77a941c;
-    filter: blur(10px);
-    border-radius: 50%;
-}
-
-.person {
-    position: absolute;
-    bottom: 45px;
-    width: 100px;
-    height: 250px;
-}
-
-.girl {
-    left: calc(50% - 180px);
-}
-
-.boy {
-    right: calc(50% - 180px);
-}
-
-.head {
-    position: absolute;
-    top: 0;
-    left: 19px;
-    width: 62px;
-    height: 68px;
-    background: #f0bd9e;
-    border-radius: 48%;
-    z-index: 5;
-}
-
-.hair {
-    position: absolute;
-    top: -5px;
-    left: 15px;
-    width: 70px;
-    height: 65px;
-    background: #684354;
-    border-radius: 50% 50% 30% 30%;
-    z-index: 6;
-}
-
-.boy .hair {
-    background: #45353c;
-    height: 35px;
-    border-radius: 50% 50% 20% 20%;
-}
-
-.eye {
-    position: absolute;
-    top: 30px;
-    width: 5px;
-    height: 7px;
-    background: #45353c;
-    border-radius: 50%;
-    z-index: 7;
-}
-
-.eye.left { left: 17px; }
-.eye.right { right: 17px; }
-
-.mouth {
-    position: absolute;
-    top: 47px;
-    left: 26px;
-    width: 11px;
-    height: 6px;
-    border-bottom: 2px solid #ad5f76;
-    border-radius: 50%;
-    z-index: 7;
-}
-
-.body {
-    position: absolute;
-    top: 70px;
-    left: 5px;
-    width: 90px;
-    height: 105px;
-    border-radius: 25px 25px 12px 12px;
-    z-index: 3;
-}
-
-.girl .body {
-    background: linear-gradient(120deg, #f5a9c2, #d66e99);
-}
-
-.boy .body {
-    background: linear-gradient(120deg, #9ca8e5, #6975b8);
-}
-
-.arm {
-    position: absolute;
-    top: 85px;
-    width: 17px;
-    height: 78px;
-    background: #efb995;
-    border-radius: 20px;
-    transform-origin: top;
-    z-index: 4;
-}
-
-.arm.left { left: 0; }
-.arm.right { right: 0; }
-
-.legs {
-    position: absolute;
-    top: 165px;
-    left: 23px;
-    display: flex;
-    gap: 15px;
-}
-
-.leg {
-    width: 19px;
-    height: 70px;
-    background: #efb995;
-    border-radius: 15px;
-}
-
-.boy .leg {
-    background: #4c526e;
-}
-
-.speech {
-    position: absolute;
-    top: 5px;
-    left: 50%;
-    transform: translateX(-50%) scale(.7);
-    background: white;
-    padding: 12px 18px;
-    border-radius: 25px;
-    color: #d56e94;
-    font: 600 17px 'Playfair Display', serif;
-    opacity: 0;
-    transition: .5s;
-    white-space: nowrap;
-    z-index: 10;
-    box-shadow: 0 8px 25px #9c668122;
-}
-
-.scene.hugging .speech {
-    opacity: 1;
-    transform: translateX(-50%) scale(1);
-}
-
-.scene.started .girl {
-    animation: girlWalk 2s forwards ease-in-out;
-}
-
-.scene.started .boy {
-    animation: boyWalk 2s forwards ease-in-out;
-}
-
-@keyframes girlWalk {
-    to {
-        left: calc(50% - 95px);
-        transform: rotate(-5deg);
-    }
-}
-
-@keyframes boyWalk {
-    to {
-        right: calc(50% - 95px);
-        transform: rotate(5deg);
-    }
-}
-
-.scene.hugging .girl {
-    animation: girlHug 1s forwards;
-}
-
-.scene.hugging .boy {
-    animation: boyHug 1s forwards;
-}
-
-@keyframes girlHug {
-    to { transform: translateX(12px) rotate(-10deg); }
-}
-
-@keyframes boyHug {
-    to { transform: translateX(-12px) rotate(10deg); }
-}
-
-.scene.hugging .girl .arm.right {
-    animation: girlArm 1s .2s forwards;
-}
-
-.scene.hugging .boy .arm.left {
-    animation: boyArm 1s .2s forwards;
-}
-
-@keyframes girlArm {
-    to { transform: rotate(75deg); }
-}
-
-@keyframes boyArm {
-    to { transform: rotate(-75deg); }
-}
-
-.scene.complete .person {
-    animation: embrace 2s ease-in-out infinite;
-}
-
-@keyframes embrace {
-    50% { filter: drop-shadow(0 5px 10px #e879a055); }
-}
-
-.burst {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    font-size: 25px;
-    pointer-events: none;
-    animation: burst 1.5s forwards;
-    z-index: 12;
-}
-
-@keyframes burst {
-    from {
-        transform: translate(-50%, -50%) scale(.2);
-        opacity: 1;
-    }
-    to {
-        transform: translate(var(--x), var(--y)) scale(1.5) rotate(30deg);
-        opacity: 0;
-    }
-}
-
-/* LETTER */
-
-.letter {
-    background: #fff9fc;
-    border: 1px solid #f5dce7;
-    border-radius: 22px;
-    padding: 25px;
-    max-width: 520px;
-    margin: 25px auto;
-    line-height: 2;
-    color: #806879;
-    font-size: 14px;
-}
-
-.letter strong {
-    display: block;
-    font: 600 26px 'Playfair Display', serif;
-    color: var(--pink);
-    margin-bottom: 12px;
-}
-
-footer {
-    margin-top: 25px;
-    font-size: 10px;
-    letter-spacing: 2px;
-    color: #b18c9e;
-}
-
-@media(max-width: 520px) {
-    .page {
-        padding: 40px 18px;
-        border-radius: 25px;
-    }
-
-    .scene {
-        height: 300px;
-    }
-
-    .person {
-        transform: scale(.85);
-        transform-origin: bottom center;
-    }
-
-    .girl {
-        left: calc(50% - 165px);
-    }
-
-    .boy {
-        right: calc(50% - 165px);
-    }
-
-    @keyframes girlWalk {
-        to {
-            left: calc(50% - 85px);
-            transform: scale(.85) rotate(-5deg);
-        }
-    }
-
-    @keyframes boyWalk {
-        to {
-            right: calc(50% - 85px);
-            transform: scale(.85) rotate(5deg);
-        }
-    }
-
-    h1 { font-size: 42px; }
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div id="hearts"></div>
+<div id="ambient" aria-hidden="true"></div>
 
-<div class="container">
+<div class="site">
 
-<header>
-    <div class="logo">Little Love <span>♥</span></div>
-    <div class="badge">MADE WITH LOVE</div>
+<header class="nav">
+  <div class="brand">Little Love <span>♥</span></div>
+  <div class="nav-tag">A LITTLE SURPRISE FOR GABY</div>
 </header>
 
 <main>
 
-<!-- HALAMAN PERTAMA -->
+<!-- HALAMAN UTAMA -->
 
-<section class="page active" id="home">
+<section class="card page active" id="home">
 
-    <div class="label">A LITTLE SURPRISE FOR YOU</div>
+  <div class="eyebrow">
+    A LITTLE SOMETHING, MADE WITH LOVE
+  </div>
 
-    <div class="bear-area">
+  <div class="teddy-wrap" aria-label="Beruang teddy yang melambaikan tangan">
 
-        <div class="bear">
+    <div class="teddy-aura"></div>
 
-            <div class="ear left"></div>
-            <div class="ear right"></div>
+    <div class="teddy">
 
-            <div class="bear-head">
-                <div class="bear-eye left"></div>
-                <div class="bear-eye right"></div>
-                <div class="bear-nose"></div>
-                <div class="bear-mouth"></div>
-            </div>
+      <div class="ear l"></div>
+      <div class="ear r"></div>
 
-            <div class="bear-body">
-                <div class="bear-belly"></div>
-            </div>
+      <div class="head">
+        <div class="eye l"></div>
+        <div class="eye r"></div>
+        <div class="muzzle"></div>
+        <div class="nose"></div>
+        <div class="smile"></div>
+      </div>
 
-            <div class="bear-arm left"></div>
-            <div class="bear-arm right"></div>
+      <div class="body">
+        <div class="belly"></div>
+      </div>
 
-            <div class="bear-foot left"></div>
-            <div class="bear-foot right"></div>
+      <div class="arm l"></div>
+      <div class="arm r"></div>
 
-            <div class="bear-heart">❤️</div>
+      <div class="foot l"></div>
+      <div class="foot r"></div>
 
-        </div>
+      <div class="teddy-heart">♥</div>
 
     </div>
 
-    <h1>Hi, <span>Gaby!</span></h1>
+  </div>
 
-    <p class="description">
-        Aku punya sesuatu yang spesial buat kamu.
-        Sederhana, tapi dibuat dengan penuh rasa sayang.
-    </p>
+  <h1>For <em>Gaby</em></h1>
 
-    <div class="buttons">
-        <button class="primary" onclick="openPage('hug')">
-            Buka Kejutan ❤️
-        </button>
-    </div>
+  <p class="lead">
+    Ada kejutan kecil yang aku siapkan khusus buat kamu.
+    Bukan sesuatu yang mewah, tapi dibuat dengan banyak rasa sayang.
+  </p>
 
-    <footer>DESIGNED WITH LOVE · FOR GABY</footer>
+  <div class="btn-row">
+    <button class="btn btn-primary" id="startBtn">
+      Buka kejutan ini <span aria-hidden="true">♡</span>
+    </button>
+  </div>
+
+  <div class="signature">
+    MADE WITH LOVE · FROM IRFAN
+  </div>
 
 </section>
 
 
 <!-- HALAMAN PELUKAN -->
 
-<section class="page" id="hug">
+<section class="card page" id="hugPage">
 
-    <div class="label">JUST FOR YOU</div>
+  <div class="eyebrow">A MOMENT JUST FOR US</div>
 
-    <h2>A little hug for you</h2>
+  <h2>Untuk kamu, Gaby</h2>
 
-    <p class="description">
-        Ada seseorang yang ingin menyampaikan
-        sesuatu dari hati yang paling dalam.
-    </p>
+  <p class="lead">
+    Sebelum lanjut, ada sedikit kata-kata yang ingin aku sampaikan.
+  </p>
 
-    <div id="message"></div>
+  <div class="message-box">
+    <p id="typed" aria-live="polite"></p>
+  </div>
 
-    <div class="scene" id="scene">
+  <div class="btn-row" id="hugAction">
 
-        <div class="scene-glow"></div>
-        <div class="ground"></div>
+    <button class="btn btn-primary" id="hugBtn">
+      Klik untuk berpelukan <span aria-hidden="true">♡</span>
+    </button>
 
-        <div class="speech">
-            I love you, Gaby! ❤️
-        </div>
+  </div>
 
-        <!-- KARAKTER PEREMPUAN -->
+  <div class="scene-shell">
 
-        <div class="person girl">
+  <svg class="scene" id="scene"
+       viewBox="0 0 700 390"
+       role="img"
+       aria-label="Ilustrasi dua karakter yang berjalan saling mendekat lalu berpelukan">
 
-            <div class="hair"></div>
+    <defs>
 
-            <div class="head">
-                <div class="eye left"></div>
-                <div class="eye right"></div>
-                <div class="mouth"></div>
-            </div>
+      <radialGradient id="glowGrad">
+        <stop offset="0" stop-color="#f5cbdc" stop-opacity=".9"/>
+        <stop offset="1" stop-color="#f5cbdc" stop-opacity="0"/>
+      </radialGradient>
 
-            <div class="body"></div>
+      <linearGradient id="girlDress" x1="0" y1="0" x2="1" y2="1">
+        <stop stop-color="#f3b1c7"/>
+        <stop offset="1" stop-color="#d9789d"/>
+      </linearGradient>
 
-            <div class="arm left"></div>
-            <div class="arm right"></div>
+      <linearGradient id="boyShirt" x1="0" y1="0" x2="1" y2="1">
+        <stop stop-color="#aeb8e5"/>
+        <stop offset="1" stop-color="#7785bd"/>
+      </linearGradient>
 
-            <div class="legs">
-                <div class="leg"></div>
-                <div class="leg"></div>
-            </div>
+    </defs>
 
-        </div>
+    <ellipse class="back-glow" cx="350" cy="230" rx="215" ry="150" fill="url(#glowGrad)"/>
 
-        <!-- KARAKTER LAKI-LAKI -->
+    <ellipse class="hug-halo" cx="350" cy="215" rx="180" ry="145" fill="#f4c8dc" opacity=".55"/>
 
-        <div class="person boy">
+    <ellipse class="floor-shadow" cx="350" cy="350" rx="210" ry="19"/>
 
-            <div class="hair"></div>
+    <g class="speech">
+      <rect x="265" y="20" width="170" height="43" rx="21" fill="#fff" stroke="#f1dce6"/>
+      <path d="M340 62l10 10 10-10" fill="#fff" stroke="#f1dce6" stroke-linejoin="round"/>
+      <text x="350" y="47" text-anchor="middle" font-family="Playfair Display,serif" font-size="17" fill="#d47799">
+        I love you, Gaby ♥
+      </text>
+    </g>
 
-            <div class="head">
-                <div class="eye left"></div>
-                <div class="eye right"></div>
-                <div class="mouth"></div>
-            </div>
+    <g class="heart-pop" font-size="25" fill="#e77da3">
+      <text x="245" y="160">♥</text>
+    </g>
 
-            <div class="body"></div>
+    <g class="heart-pop" font-size="20" fill="#c39acb">
+      <text x="435" y="145">♥</text>
+    </g>
 
-            <div class="arm left"></div>
-            <div class="arm right"></div>
+    <g class="heart-pop" font-size="17" fill="#ec9bb7">
+      <text x="310" y="110">♥</text>
+    </g>
 
-            <div class="legs">
-                <div class="leg"></div>
-                <div class="leg"></div>
-            </div>
+    <g class="heart-pop" font-size="23" fill="#e77da3">
+      <text x="390" y="105">♥</text>
+    </g>
 
-        </div>
 
-    </div>
+    <!-- KARAKTER PEREMPUAN -->
 
-    <p class="description" id="caption">
-        Satu pelukan kecil untuk orang yang spesial.
-    </p>
+    <g id="girl">
 
-    <div class="buttons">
+      <path class="girl-hair"
+        d="M207 86 Q207 34 257 34 Q307 34 306 91 L300 154 Q286 177 274 148 L224 151 Q210 173 198 149Z"/>
 
-        <button class="primary" id="hugButton" onclick="startHug()">
-            Klik untuk berpelukan 🤗
-        </button>
+      <g class="legs">
 
-        <button class="secondary" onclick="openPage('letter')">
-            Baca surat 💌
-        </button>
+        <path class="skin leg-left"
+          d="M230 268 Q228 305 225 337 L222 354 Q223 362 239 362 L246 354 244 337 252 270Z"/>
 
-    </div>
+        <path class="skin leg-right"
+          d="M264 268 L270 337 267 354 Q268 362 284 361 L290 354 285 336 282 268Z"/>
 
-    <footer>YOU ARE MY FAVORITE PERSON</footer>
+        <path class="shoe"
+          d="M220 352 Q215 359 216 365 Q230 371 248 364 L247 356Z"/>
+
+        <path class="shoe"
+          d="M267 354 Q264 362 267 367 Q282 372 297 364 L290 355Z"/>
+
+      </g>
+
+      <path class="body-main"
+        d="M218 151 Q246 139 278 151 L294 256 Q286 277 247 278 Q211 277 202 256Z"
+        fill="url(#girlDress)"/>
+
+      <path d="M221 157 Q248 172 277 157"
+        fill="none" stroke="#ffdce7" stroke-width="5"
+        stroke-linecap="round" opacity=".7"/>
+
+      <g class="arm-back">
+        <path class="skin"
+          d="M211 166 Q195 175 196 203 L199 239 Q200 251 210 249 Q219 247 216 236 L214 204 229 181Z"/>
+
+        <path class="skin"
+          d="M201 239 Q193 248 201 257 Q210 263 216 253 L216 242Z"/>
+      </g>
+
+      <g class="arm-front">
+        <path class="skin"
+          d="M281 165 Q300 174 301 199 L294 232 Q291 245 281 240 Q274 236 280 225 L283 200 268 184Z"/>
+
+        <path class="skin"
+          d="M281 230 Q275 238 282 247 Q291 251 296 241 L295 231Z"/>
+      </g>
+
+      <path class="skin"
+        d="M243 126 L243 151 Q255 163 270 150 L267 124Z"/>
+
+      <g class="head-girl">
+
+        <ellipse class="skin" cx="255" cy="91" rx="43" ry="51"/>
+
+        <path class="girl-hair"
+          d="M212 94 Q203 42 252 34 Q300 30 300 79 Q284 62 267 63 Q241 80 214 69Z"/>
+
+        <path class="girl-hair"
+          d="M213 83 Q199 110 211 151 Q221 163 229 147 L225 102Z"/>
+
+        <path class="girl-hair"
+          d="M294 78 Q312 106 297 150 Q289 161 282 146 L286 103Z"/>
+
+        <ellipse class="eye-svg" cx="240" cy="96" rx="3.3" ry="4.5"/>
+        <ellipse class="eye-svg" cx="270" cy="96" rx="3.3" ry="4.5"/>
+
+        <ellipse class="cheek" cx="229" cy="110" rx="8" ry="4.5"/>
+        <ellipse class="cheek" cx="281" cy="110" rx="8" ry="4.5"/>
+
+        <path d="M249 119 Q255 124 262 118"
+          fill="none" stroke="#a85e72" stroke-width="2" stroke-linecap="round"/>
+
+        <path d="M214 76 Q223 47 254 46"
+          fill="none" stroke="#8c6370" stroke-width="3"
+          stroke-linecap="round" opacity=".5"/>
+
+      </g>
+
+    </g>
+
+
+    <!-- KARAKTER LAKI-LAKI -->
+
+    <g id="boy">
+
+      <path class="boy-hair"
+        d="M392 83 Q393 34 444 34 Q492 34 493 83 L485 145 Q470 161 458 143 L414 146 Q399 161 388 142Z"/>
+
+      <g class="legs">
+
+        <path class="skin leg-left"
+          d="M416 267 L413 337 409 354 Q410 363 426 362 L433 354 431 336 438 267Z"/>
+
+        <path class="skin leg-right"
+          d="M452 267 L459 337 456 354 Q457 363 474 361 L480 354 474 336 470 267Z"/>
+
+        <path class="shoe"
+          d="M408 352 Q403 360 405 366 Q420 372 437 364 L433 355Z"/>
+
+        <path class="shoe"
+          d="M456 354 Q453 362 456 367 Q472 372 487 364 L480 355Z"/>
+
+      </g>
+
+      <path class="body-main"
+        d="M402 151 Q438 139 474 151 L490 256 Q480 277 444 278 Q407 277 391 256Z"
+        fill="url(#boyShirt)"/>
+
+      <path d="M405 157 Q440 171 472 157"
+        fill="none" stroke="#e4e8ff" stroke-width="5"
+        stroke-linecap="round" opacity=".7"/>
+
+      <g class="arm-back">
+
+        <path class="skin"
+          d="M401 166 Q383 175 382 202 L389 236 Q391 249 401 245 Q409 241 403 229 L400 202 419 183Z"/>
+
+        <path class="skin"
+          d="M390 234 Q383 244 390 253 Q399 260 405 249 L402 238Z"/>
+
+      </g>
+
+      <g class="arm-front">
+
+        <path class="skin"
+          d="M476 165 Q493 174 495 199 L488 232 Q485 245 475 240 Q468 236 474 225 L477 200 462 184Z"/>
+
+        <path class="skin"
+          d="M476 230 Q469 238 476 247 Q485 251 490 241 L489 231Z"/>
+
+      </g>
+
+      <path class="skin"
+        d="M426 126 L426 151 Q441 163 456 150 L453 124Z"/>
+
+      <g class="head-boy">
+
+        <ellipse class="skin" cx="441" cy="91" rx="42" ry="50"/>
+
+        <path class="boy-hair"
+          d="M399 83 Q397 39 441 36 Q488 34 485 81 Q465 70 448 67 Q424 77 399 70Z"/>
+
+        <path class="boy-hair"
+          d="M402 69 Q417 51 435 55 L429 78 Q415 84 402 81Z"/>
+
+        <ellipse class="eye-svg" cx="427" cy="96" rx="3.2" ry="4.5"/>
+        <ellipse class="eye-svg" cx="456" cy="96" rx="3.2" ry="4.5"/>
+
+        <ellipse class="cheek" cx="416" cy="110" rx="7" ry="4"/>
+        <ellipse class="cheek" cx="468" cy="110" rx="7" ry="4"/>
+
+        <path d="M435 119 Q442 124 449 118"
+          fill="none" stroke="#a85e72" stroke-width="2" stroke-linecap="round"/>
+
+      </g>
+
+    </g>
+
+  </svg>
+  </div>
+
+  <p class="caption" id="caption">
+    Dua orang yang saling merindukan, sebentar lagi bertemu dalam pelukan.
+  </p>
+
+  <div class="btn-row" id="letterAction" style="display:none">
+
+    <button class="btn btn-quiet" id="letterBtn">
+      Baca surat kecilku
+    </button>
+
+    <button class="btn btn-primary" id="againBtn">
+      Peluk sekali lagi ♥
+    </button>
+
+  </div>
+
+  <div class="signature">
+    A HUG, EVEN FROM A LITTLE WEBSITE
+  </div>
 
 </section>
 
 
 <!-- HALAMAN SURAT -->
 
-<section class="page" id="letter">
+<section class="card page" id="letterPage">
 
-    <div class="label">A LETTER FOR YOU</div>
+  <div class="eyebrow">A LETTER FROM MY HEART</div>
 
-    <h2>Dear, Gaby ❤️</h2>
+  <h2>Dear, Gaby ♥</h2>
 
-    <div class="letter">
+  <div class="letter">
 
-        <strong>Untuk Sayangku</strong>
+    <div class="salute">Untuk sayangku</div>
 
-        Aku mungkin nggak selalu bisa memberikan
-        hal yang sempurna, tapi aku ingin selalu
-        berusaha memberikan yang terbaik buat kamu.
+    Aku mungkin nggak selalu bisa memberikan hal yang sempurna,
+    tapi aku ingin selalu berusaha memberikan yang terbaik buat kamu.
 
-        <br><br>
+    <br><br>
 
-        Terima kasih sudah hadir dan menjadi bagian
-        dari hari-hariku. Aku senang bisa mengenal
-        kamu, bercanda bersama kamu, dan melewati
-        banyak hal bersama kamu.
+    Terima kasih sudah hadir dan menjadi bagian dari hari-hariku.
+    Aku senang bisa mengenal kamu, bercanda bersama kamu,
+    dan melewati banyak hal bersama kamu.
 
-        <br><br>
+    <br><br>
 
-        Semoga kita selalu bisa saling memahami,
-        saling menjaga, dan terus bersama.
+    Semoga kita selalu bisa saling memahami, saling menjaga,
+    dan terus memilih satu sama lain.
 
-        <br><br>
+    <br><br>
 
-        I love you, Gaby. ❤️
+    I love you, Gaby. ♥
 
-        <br><br>
+    <br><br>
 
-        <b>With love, Irfan.</b>
+    <strong style="display:block;text-align:right;color:#bd7895;font-family:'Playfair Display',serif;font-size:19px">
+      With love, Irfan.
+    </strong>
 
-    </div>
+  </div>
 
-    <div class="buttons">
-        <button class="primary" onclick="openPage('home')">
-            Kembali ke awal ❤️
-        </button>
-    </div>
+  <div class="btn-row">
+    <button class="btn btn-primary" id="backBtn">
+      Kembali ke kejutan ♥
+    </button>
+  </div>
 
-    <footer>FOREVER IN MY LITTLE LOVE GARDEN</footer>
+  <div class="signature">ALWAYS WITH LOVE</div>
 
 </section>
 
 </main>
 </div>
 
-
-<script>
-
-// PINDAH HALAMAN
-
-function openPage(page) {
-
-    document.querySelectorAll('.page').forEach(item => {
-        item.classList.remove('active');
-    });
-
-    document.getElementById(page).classList.add('active');
-
-    if (page === 'hug') {
-        typeMessage();
-    }
-
-}
-
-
-// EFEK MENGETIK
-
-const textMessage =
-"Sayang, mungkin aku nggak selalu ada di samping kamu setiap waktu. Tapi aku ingin kamu tahu kalau kamu selalu punya tempat spesial di hati aku. Terima kasih sudah hadir di hidupku. Aku sayang kamu, Gaby. ❤️";
-
-let typingTimer;
-
-function typeMessage() {
-
-    clearInterval(typingTimer);
-
-    const message = document.getElementById('message');
-
-    message.textContent = "";
-
-    let index = 0;
-
-    typingTimer = setInterval(() => {
-
-        if (index < textMessage.length) {
-
-            message.textContent += textMessage.charAt(index);
-            index++;
-
-        } else {
-
-            clearInterval(typingTimer);
-
-        }
-
-    }, 40);
-
-}
-
-
-// ANIMASI PELUKAN
-
-let hugged = false;
-
-function startHug() {
-
-    if (hugged) {
-        resetHug();
-        return;
-    }
-
-    const scene = document.getElementById('scene');
-    const button = document.getElementById('hugButton');
-    const caption = document.getElementById('caption');
-
-    scene.classList.remove('started', 'hugging', 'complete');
-
-    void scene.offsetWidth;
-
-    scene.classList.add('started');
-
-    button.disabled = true;
-    button.textContent = "Mendekat... ❤️";
-
-    caption.textContent = "Aku ingin memelukmu...";
-
-    setTimeout(() => {
-
-        scene.classList.add('hugging');
-
-        button.textContent = "Sedang berpelukan...";
-
-        caption.textContent = "I love you so much, Gaby. ❤️";
-
-    }, 2000);
-
-
-    setTimeout(() => {
-
-        scene.classList.add('complete');
-
-        createExplosion();
-
-        button.disabled = false;
-        button.textContent = "Peluk lagi 🤗";
-
-        hugged = true;
-
-    }, 3100);
-
-}
-
-
-// RESET PELUKAN
-
-function resetHug() {
-
-    const scene = document.getElementById('scene');
-
-    scene.classList.remove('started', 'hugging', 'complete');
-
-    document.getElementById('hugButton').textContent =
-        "Klik untuk berpelukan 🤗";
-
-    document.getElementById('caption').textContent =
-        "Satu pelukan kecil untuk orang yang spesial.";
-
-    hugged = false;
-
-}
-
-
-// LEDAKAN HATI
-
-function createExplosion() {
-
-    const scene = document.getElementById('scene');
-
-    const symbols = ['❤️', '💕', '💗', '💖', '✨', '💘'];
-
-    for (let i = 0; i < 30; i++) {
-
-        const heart = document.createElement('span');
-
-        heart.className = 'burst';
-
-        heart.textContent =
-            symbols[Math.floor(Math.random() * symbols.length)];
-
-        heart.style.setProperty('--x',
-            (Math.random() * 500 - 250) + 'px');
-
-        heart.style.setProperty('--y',
-            (Math.random() * 400 - 200) + 'px');
-
-        scene.appendChild(heart);
-
-        setTimeout(() => heart.remove(), 1600);
-
-    }
-
-}
-
-
-// HATI MELAYANG DI BACKGROUND
-
-function createFloatingHeart() {
-
-    const area = document.getElementById('hearts');
-
-    const heart = document.createElement('div');
-
-    heart.className = 'floating-heart';
-
-    heart.textContent = ['❤️', '💕', '💗', '✨'][
-        Math.floor(Math.random() * 4)
-    ];
-
-    heart.style.left = Math.random() * 100 + '%';
-
-    heart.style.fontSize =
-        (12 + Math.random() * 17) + 'px';
-
-    heart.style.animationDuration =
-        (6 + Math.random() * 6) + 's';
-
-    area.appendChild(heart);
-
-    setTimeout(() => heart.remove(), 12000);
-
-}
-
-setInterval(createFloatingHeart, 700);
-
-</script>
+<script src="script.js" defer></script>
 
 </body>
 </html>
