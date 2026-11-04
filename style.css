@@ -1,254 +1,837 @@
-const $ = (id) => document.getElementById(id);
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
 
-const home = $("home");
-const hugPage = $("hugPage");
-const letterPage = $("letterPage");
-
-const scene = $("scene");
-const typed = $("typed");
-const hugAction = $("hugAction");
-
-const hugBtn = $("hugBtn");
-const caption = $("caption");
-const letterAction = $("letterAction");
-
-
-const message = "Gaby, kalau hari ini terasa melelahkan, semoga kamu ingat kalau ada seseorang yang selalu ingin melihat kamu bahagia. Terima kasih sudah hadir di hidupku. Aku mungkin belum sempurna, tapi aku akan terus belajar menyayangimu dengan lebih baik. Sekarang, boleh aku kasih kamu satu pelukan? ♥";
-
-
-let typingTimer = null;
-let hasHugged = false;
-let hugTimers = [];
-
-
-function showPage(page) {
-
-  [home, hugPage, letterPage].forEach(p => {
-    p.classList.remove("active");
-  });
-
-  page.classList.add("active");
-
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
-
+:root {
+    --ink: #503b49;
+    --muted: #947f8b;
+    --pink: #df86a5;
+    --plum: #a58ab4;
+    --line: #f0dce5;
 }
 
+* {
+    box-sizing: border-box;
+}
 
-// TOMBOL BUKA KEJUTAN
+body {
+    margin: 0;
+    min-height: 100vh;
+    color: var(--ink);
+    font-family: "DM Sans", sans-serif;
 
-$("startBtn").addEventListener("click", () => {
+    background:
+        radial-gradient(ellipse at 15% 10%, #fff 0, transparent 35%),
+        radial-gradient(ellipse at 90% 18%, #f1e6f5 0, transparent 34%),
+        linear-gradient(135deg, #fff6f8, #f7f2fb 58%, #fff8f1);
 
-  showPage(hugPage);
+    overflow-x: hidden;
+}
 
-  beginTyping();
+button {
+    font: inherit;
+}
 
-});
+#ambient {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
 
+.particle {
+    position: absolute;
+    bottom: -30px;
+    animation: rise var(--dur) linear forwards;
+    opacity: 0;
+    color: #e5a0b8;
+}
 
-// ANIMASI MENGETIK PESAN
-
-function beginTyping() {
-
-  clearInterval(typingTimer);
-
-  typed.textContent = "";
-
-  hugAction.classList.remove("show");
-  hugAction.style.display = "none";
-
-  letterAction.style.display = "none";
-
-  scene.classList.remove(
-    "walking",
-    "hugging",
-    "complete"
-  );
-
-  hasHugged = false;
-
-  hugBtn.disabled = false;
-
-  hugBtn.textContent = "Klik untuk berpelukan ♡";
-
-  caption.textContent =
-    "Dua orang yang saling merindukan, sebentar lagi bertemu dalam pelukan.";
-
-  let i = 0;
-
-  typingTimer = setInterval(() => {
-
-    typed.textContent += message.charAt(i);
-
-    i++;
-
-    if (i >= message.length) {
-
-      clearInterval(typingTimer);
-
-      hugAction.style.display = "flex";
-
-      requestAnimationFrame(() => {
-        hugAction.classList.add("show");
-      });
-
+@keyframes rise {
+    10% {
+        opacity: .8;
     }
 
-  }, 34);
+    to {
+        transform: translate(var(--drift), -110vh) rotate(35deg);
+        opacity: 0;
+    }
+}
 
+.site {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    padding: 22px 16px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nav {
+    width: min(100%, 900px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto 20px;
+}
+
+.brand {
+    font: 600 21px "Playfair Display", serif;
+    color: #76566a;
+}
+
+.brand span {
+    color: var(--pink);
+}
+
+.tag {
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: #a17e91;
+    background: #ffffffa8;
+    border: 1px solid white;
+    padding: 9px 13px;
+    border-radius: 30px;
+}
+
+main {
+    width: min(100%, 820px);
+    margin: auto;
+}
+
+.card {
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+
+    padding: clamp(28px, 6vw, 55px) clamp(18px, 5vw, 52px);
+
+    border: 1px solid white;
+    border-radius: 30px;
+
+    background: #ffffffdf;
+
+    box-shadow: 0 28px 80px #77546b18;
+
+    backdrop-filter: blur(16px);
+
+    animation: appear .6s ease both;
+}
+
+.card:before {
+    content: "";
+    position: absolute;
+    inset: 10px;
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    pointer-events: none;
+}
+
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2.7px;
+    color: #b17d96;
+}
+
+h1, h2 {
+    font-family: "Playfair Display", serif;
+    font-weight: 600;
+    letter-spacing: -1px;
+}
+
+h1 {
+    font-size: clamp(44px, 8vw, 68px);
+    margin: 13px 0;
+    color: #503b49;
+}
+
+h1 em {
+    color: var(--pink);
+}
+
+h2 {
+    font-size: clamp(30px, 5vw, 43px);
+    margin: 12px 0;
+    color: #805c73;
+}
+
+.lead {
+    max-width: 550px;
+    margin: 0 auto;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+.btn-row {
+    display: flex;
+    justify-content: center;
+    gap: 11px;
+    flex-wrap: wrap;
+    margin-top: 25px;
+    position: relative;
+    z-index: 2;
+}
+
+.btn {
+    min-height: 47px;
+    padding: 0 23px;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 700;
+    transition: .22s;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn:disabled {
+    opacity: .7;
+    cursor: wait;
+    transform: none;
+}
+
+.primary {
+    color: white;
+    background: linear-gradient(110deg, #df7e9f, #ad8ac2);
+    box-shadow: 0 10px 25px #d17d9c35;
+}
+
+.quiet {
+    color: #986e85;
+    background: white;
+    border-color: var(--line);
+}
+
+.signature {
+    margin-top: 27px;
+    color: #b092a1;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
 }
 
 
-// ANIMASI BERJALAN DAN BERPELUKAN
+/* TEDDY BEAR */
 
-function doHug() {
+.teddy-wrap {
+    height: 225px;
+    display: grid;
+    place-items: center;
+    position: relative;
+    margin: 10px auto;
+}
 
-  hugTimers.forEach(clearTimeout);
+.teddy-aura {
+    position: absolute;
+    width: 210px;
+    height: 180px;
+    border-radius: 50%;
 
-  hugTimers = [];
-
-
-  if (hasHugged) {
-
-    scene.classList.remove(
-      "walking",
-      "hugging",
-      "complete"
+    background: radial-gradient(
+        circle,
+        #f9dce7,
+        #f4e8f2 55%,
+        transparent 72%
     );
 
-    void scene.getBoundingClientRect();
+    filter: blur(12px);
+}
 
-  }
+.teddy {
+    position: relative;
+    width: 150px;
+    height: 195px;
 
+    animation: bob 3s ease-in-out infinite;
 
-  hasHugged = true;
+    filter: drop-shadow(0 14px 12px #80576a22);
+}
 
-  hugBtn.disabled = true;
+@keyframes bob {
+    50% {
+        transform: translateY(-9px) rotate(2deg);
+    }
+}
 
-  hugBtn.textContent = "Mendekat satu sama lain…";
+.ear {
+    position: absolute;
+    top: 12px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #b77c5e;
+    border: 6px solid #a66d52;
+}
 
-  caption.textContent =
-    "Pelan-pelan, mereka saling mendekat.";
+.ear.l {
+    left: 12px;
+}
 
-  scene.classList.remove(
-    "hugging",
-    "complete"
-  );
+.ear.r {
+    right: 12px;
+}
 
-  scene.classList.add("walking");
+.bear-head {
+    position: absolute;
+    z-index: 2;
+    left: 18px;
+    top: 24px;
+    width: 114px;
+    height: 105px;
+    border-radius: 48%;
+    background: #d7a17d;
+}
 
-  letterAction.style.display = "none";
+.bear-eye {
+    position: absolute;
+    top: 44px;
+    width: 7px;
+    height: 9px;
+    background: #49343a;
+    border-radius: 50%;
+}
 
+.bear-eye.l {
+    left: 33px;
+}
 
-  // Setelah berjalan, mulai berpelukan
+.bear-eye.r {
+    right: 33px;
+}
 
-  hugTimers.push(setTimeout(() => {
+.muzzle {
+    position: absolute;
+    top: 59px;
+    left: 37px;
+    width: 40px;
+    height: 29px;
+    border-radius: 50%;
+    background: #f2d7bd;
+}
 
-    scene.classList.remove("walking");
+.nose {
+    position: absolute;
+    top: 65px;
+    left: 52px;
+    width: 12px;
+    height: 9px;
+    border-radius: 50%;
+    background: #51383b;
+    z-index: 3;
+}
 
-    scene.classList.add("hugging");
+.bear-smile {
+    position: absolute;
+    top: 75px;
+    left: 52px;
+    width: 13px;
+    height: 7px;
+    border-bottom: 2px solid #95616a;
+    border-radius: 50%;
+    z-index: 3;
+}
 
-    hugBtn.textContent = "Berpelukan… ♥";
+.bear-body {
+    position: absolute;
+    top: 117px;
+    left: 25px;
+    width: 100px;
+    height: 75px;
+    border-radius: 48px 48px 30px 30px;
+    background: #bd835f;
+}
 
-    caption.textContent =
-      "Akhirnya, satu pelukan hangat untuk Gaby.";
+.belly {
+    position: absolute;
+    left: 29px;
+    top: 12px;
+    width: 42px;
+    height: 48px;
+    border-radius: 50%;
+    background: #f0d2b5;
+}
 
-  }, 1650));
+.bear-arm {
+    position: absolute;
+    z-index: 3;
+    top: 122px;
+    width: 34px;
+    height: 55px;
+    border-radius: 30px;
+    background: #c28a66;
+}
 
+.bear-arm.l {
+    left: 0;
+    transform-origin: top center;
+    animation: wave 2s ease-in-out infinite;
+}
 
-  // Setelah animasi selesai
+.bear-arm.r {
+    right: 0;
+    transform: rotate(-15deg);
+}
 
-  hugTimers.push(setTimeout(() => {
+@keyframes wave {
+    50% {
+        transform: rotate(38deg);
+    }
+}
 
-    scene.classList.add("complete");
+.foot {
+    position: absolute;
+    bottom: 0;
+    width: 46px;
+    height: 23px;
+    border-radius: 50%;
+    background: #a96f50;
+}
 
-    hugBtn.disabled = false;
+.foot.l {
+    left: 20px;
+}
 
-    hugBtn.textContent = "Peluk lagi ♥";
+.foot.r {
+    right: 20px;
+}
 
-    letterAction.style.display = "flex";
+.bear-heart {
+    position: absolute;
+    z-index: 5;
+    top: 125px;
+    left: 64px;
+    color: white;
+    font-size: 20px;
+    animation: beat 1.4s infinite;
+}
 
-  }, 2850));
-
+@keyframes beat {
+    50% {
+        transform: scale(1.2);
+    }
 }
 
 
-// TOMBOL PELUK
+/* PESAN */
 
-hugBtn.addEventListener("click", doHug);
+.message-box {
+    min-height: 105px;
+    max-width: 600px;
+    margin: 14px auto 0;
+    display: grid;
+    place-items: center;
+}
 
-$("againBtn").addEventListener("click", doHug);
+#typed {
+    color: #856c7b;
+    font-size: 14px;
+    line-height: 1.95;
+}
 
+#typed:after {
+    content: "";
+    display: inline-block;
+    width: 1px;
+    height: 15px;
+    margin-left: 3px;
+    background: #d77f9e;
+    animation: blink .8s steps(2) infinite;
+    vertical-align: -2px;
+}
 
-// TOMBOL BACA SURAT
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
 
-$("letterBtn").addEventListener("click", () => {
+#hugAction {
+    display: none;
+}
 
-  showPage(letterPage);
-
-});
-
-
-// TOMBOL KEMBALI
-
-$("backBtn").addEventListener("click", () => {
-
-  showPage(hugPage);
-
-  beginTyping();
-
-});
-
-
-// EFEK HATI MELAYANG
-
-const ambient = $("ambient");
-
-
-function addParticle() {
-
-  const el = document.createElement("span");
-
-  el.className = "particle";
-
-  el.textContent = ["♥", "✦", "♡"][
-    Math.floor(Math.random() * 3)
-  ];
-
-  el.style.left = Math.random() * 100 + "%";
-
-  el.style.fontSize =
-    (11 + Math.random() * 12) + "px";
-
-  el.style.color = [
-    "#e79ab5",
-    "#c3a2cf",
-    "#e8b8a9"
-  ][Math.floor(Math.random() * 3)];
-
-  el.style.setProperty(
-    "--duration",
-    (9 + Math.random() * 7) + "s"
-  );
-
-  el.style.setProperty(
-    "--drift",
-    (Math.random() * 100 - 50) + "px"
-  );
-
-  ambient.appendChild(el);
-
-  setTimeout(() => {
-    el.remove();
-  }, 17000);
-
+#hugAction.show {
+    display: flex;
+    animation: appear .4s ease both;
 }
 
 
-if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+/* KARAKTER */
 
-  setInterval(addParticle, 1100);
+.scene-wrap {
+    max-width: 680px;
+    margin: 16px auto 0;
+}
+
+.scene {
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+}
+
+.caption {
+    min-height: 22px;
+    color: #a17d90;
+    font-size: 12px;
+    margin: 3px 0 0;
+}
+
+.letter {
+    max-width: 550px;
+    margin: 22px auto 0;
+    padding: 26px 28px;
+
+    background: #fff9fc;
+    border: 1px solid var(--line);
+    border-radius: 20px;
+
+    color: #806879;
+    font-size: 14px;
+    line-height: 2;
+    text-align: left;
+}
+
+.letter strong {
+    display: block;
+    text-align: right;
+    color: #bd7895;
+    font: 600 20px "Playfair Display", serif;
+    margin-top: 12px;
+}
+
+
+/* RESPONSIVE */
+
+@media(max-width: 600px) {
+
+    .site {
+        padding: 14px 11px;
+    }
+
+    .nav {
+        margin-bottom: 14px;
+    }
+
+    .tag {
+        font-size: 8px;
+        padding: 8px;
+    }
+
+    .card {
+        border-radius: 24px;
+        padding: 30px 16px;
+    }
+
+    .card:before {
+        inset: 7px;
+    }
+
+    .teddy-wrap {
+        height: 210px;
+    }
+
+    .scene-wrap {
+        margin: 10px -12px 0;
+    }
+
+    .letter {
+        padding: 20px 17px;
+    }
+}
+
+
+/* ANIMASI KARAKTER SVG */
+
+.skin {
+    fill: #eab895;
+}
+
+#girl .leg,
+#boy .leg {
+    fill: #eab895;
+}
+
+#girl .arm,
+#boy .arm {
+    fill: #eab895;
+}
+
+#girl,
+#boy {
+    transform-box: fill-box;
+    transform-origin: center bottom;
+    will-change: transform;
+}
+
+#girl {
+    transform: translateX(-105px);
+}
+
+#boy {
+    transform: translateX(105px);
+}
+
+#girl .head,
+#boy .head {
+    transform-box: fill-box;
+    transform-origin: 50% 88%;
+}
+
+#girl .arm,
+#boy .arm {
+    transform-box: fill-box;
+    transform-origin: 12% 18%;
+}
+
+#girl .legs,
+#boy .legs {
+    transform-box: fill-box;
+    transform-origin: center top;
+}
+
+
+/* BERJALAN */
+
+#scene.walking #girl {
+    animation: girlWalk 1.65s cubic-bezier(.2,.78,.18,1) forwards;
+}
+
+#scene.walking #boy {
+    animation: boyWalk 1.65s cubic-bezier(.2,.78,.18,1) forwards;
+}
+
+@keyframes girlWalk {
+    0% {
+        transform: translateX(-105px);
+    }
+
+    18% {
+        transform: translateX(-82px) translateY(-5px);
+    }
+
+    36% {
+        transform: translateX(-58px);
+    }
+
+    54% {
+        transform: translateX(-34px) translateY(-4px);
+    }
+
+    72% {
+        transform: translateX(-14px);
+    }
+
+    100% {
+        transform: translateX(-7px);
+    }
+}
+
+@keyframes boyWalk {
+    0% {
+        transform: translateX(105px);
+    }
+
+    18% {
+        transform: translateX(82px) translateY(-5px);
+    }
+
+    36% {
+        transform: translateX(58px);
+    }
+
+    54% {
+        transform: translateX(34px) translateY(-4px);
+    }
+
+    72% {
+        transform: translateX(14px);
+    }
+
+    100% {
+        transform: translateX(7px);
+    }
+}
+
+#scene.walking .legs {
+    animation: steps .34s ease-in-out 4;
+}
+
+@keyframes steps {
+    50% {
+        transform: translateY(-3px) rotate(2deg);
+    }
+}
+
+
+/* BERPELUKAN */
+
+#scene.hugging #girl {
+    animation: girlHug .9s cubic-bezier(.18,.82,.22,1) forwards;
+}
+
+#scene.hugging #boy {
+    animation: boyHug .9s cubic-bezier(.18,.82,.22,1) forwards;
+}
+
+@keyframes girlHug {
+    to {
+        transform: translateX(43px) rotate(-6deg);
+    }
+}
+
+@keyframes boyHug {
+    to {
+        transform: translateX(-43px) rotate(6deg);
+    }
+}
+
+#scene.hugging #girl .arm.front {
+    animation: armGirl .75s .12s ease-out forwards;
+}
+
+#scene.hugging #boy .arm.front {
+    animation: armBoy .75s .12s ease-out forwards;
+}
+
+@keyframes armGirl {
+    to {
+        transform: rotate(-85deg) translate(5px,4px);
+    }
+}
+
+@keyframes armBoy {
+    to {
+        transform: rotate(85deg) translate(-5px,4px);
+    }
+}
+
+#scene.hugging #girl .head {
+    animation: headGirl .7s .2s ease-out forwards;
+}
+
+#scene.hugging #boy .head {
+    animation: headBoy .7s .2s ease-out forwards;
+}
+
+@keyframes headGirl {
+    to {
+        transform: rotate(6deg) translate(3px,2px);
+    }
+}
+
+@keyframes headBoy {
+    to {
+        transform: rotate(-6deg) translate(-3px,2px);
+    }
+}
+
+
+/* EFEK HATI DAN BAYANGAN */
+
+.bubble {
+    opacity: 0;
+    transform: translateY(8px);
+    transition: .5s ease;
+}
+
+#scene.hugging .bubble,
+#scene.complete .bubble {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: .35s;
+}
+
+#scene.hugging .floating-hearts {
+    animation: hearts 1.7s ease-out both;
+}
+
+@keyframes hearts {
+    0% {
+        opacity: 0;
+        transform: translateY(15px) scale(.5);
+    }
+
+    25% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-55px) scale(1.1);
+    }
+}
+
+#scene.hugging .ground {
+    animation: ground .9s ease-out forwards;
+}
+
+@keyframes ground {
+    to {
+        transform: scaleX(.75);
+        opacity: .1;
+    }
+}
+
+
+/* POSISI AKHIR */
+
+#scene.complete #girl {
+    transform: translateX(43px) rotate(-6deg);
+}
+
+#scene.complete #boy {
+    transform: translateX(-43px) rotate(6deg);
+}
+
+#scene.complete #girl,
+#scene.complete #boy {
+    animation: breath 3s ease-in-out infinite;
+}
+
+@keyframes breath {
+    50% {
+        translate: 0 -2px;
+    }
+}
+
+
+/* AKSESIBILITAS */
+
+@media(prefers-reduced-motion: reduce) {
+
+    *,
+    *:before,
+    *:after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+    }
 
 }
