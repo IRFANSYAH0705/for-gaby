@@ -17,12 +17,10 @@ body {
     min-height: 100vh;
     color: var(--ink);
     font-family: "DM Sans", sans-serif;
-
     background:
         radial-gradient(ellipse at 15% 10%, #fff 0, transparent 35%),
         radial-gradient(ellipse at 90% 18%, #f1e6f5 0, transparent 34%),
         linear-gradient(135deg, #fff6f8, #f7f2fb 58%, #fff8f1);
-
     overflow-x: hidden;
 }
 
@@ -62,7 +60,6 @@ button {
     z-index: 1;
     min-height: 100vh;
     padding: 22px 16px;
-
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -104,18 +101,12 @@ main {
     position: relative;
     text-align: center;
     overflow: hidden;
-
     padding: clamp(28px, 6vw, 55px) clamp(18px, 5vw, 52px);
-
     border: 1px solid white;
     border-radius: 30px;
-
     background: #ffffffdf;
-
     box-shadow: 0 28px 80px #77546b18;
-
     backdrop-filter: blur(16px);
-
     animation: appear .6s ease both;
 }
 
@@ -224,7 +215,7 @@ h2 {
 
 .quiet {
     color: #986e85;
-    background: white;
+    background: #fff;
     border-color: var(--line);
 }
 
@@ -236,8 +227,7 @@ h2 {
     letter-spacing: 2.5px;
 }
 
-
-/* TEDDY BEAR */
+/* Teddy bear */
 
 .teddy-wrap {
     height: 225px;
@@ -252,14 +242,7 @@ h2 {
     width: 210px;
     height: 180px;
     border-radius: 50%;
-
-    background: radial-gradient(
-        circle,
-        #f9dce7,
-        #f4e8f2 55%,
-        transparent 72%
-    );
-
+    background: radial-gradient(circle, #f9dce7, #f4e8f2 55%, transparent 72%);
     filter: blur(12px);
 }
 
@@ -267,9 +250,7 @@ h2 {
     position: relative;
     width: 150px;
     height: 195px;
-
     animation: bob 3s ease-in-out infinite;
-
     filter: drop-shadow(0 14px 12px #80576a22);
 }
 
@@ -437,8 +418,7 @@ h2 {
     }
 }
 
-
-/* PESAN */
+/* Message */
 
 .message-box {
     min-height: 105px;
@@ -480,8 +460,7 @@ h2 {
     animation: appear .4s ease both;
 }
 
-
-/* KARAKTER */
+/* Couple illustration */
 
 .scene-wrap {
     max-width: 680px;
@@ -495,90 +474,12 @@ h2 {
     overflow: visible;
 }
 
-.caption {
-    min-height: 22px;
-    color: #a17d90;
-    font-size: 12px;
-    margin: 3px 0 0;
-}
-
-.letter {
-    max-width: 550px;
-    margin: 22px auto 0;
-    padding: 26px 28px;
-
-    background: #fff9fc;
-    border: 1px solid var(--line);
-    border-radius: 20px;
-
-    color: #806879;
-    font-size: 14px;
-    line-height: 2;
-    text-align: left;
-}
-
-.letter strong {
-    display: block;
-    text-align: right;
-    color: #bd7895;
-    font: 600 20px "Playfair Display", serif;
-    margin-top: 12px;
-}
-
-
-/* RESPONSIVE */
-
-@media(max-width: 600px) {
-
-    .site {
-        padding: 14px 11px;
-    }
-
-    .nav {
-        margin-bottom: 14px;
-    }
-
-    .tag {
-        font-size: 8px;
-        padding: 8px;
-    }
-
-    .card {
-        border-radius: 24px;
-        padding: 30px 16px;
-    }
-
-    .card:before {
-        inset: 7px;
-    }
-
-    .teddy-wrap {
-        height: 210px;
-    }
-
-    .scene-wrap {
-        margin: 10px -12px 0;
-    }
-
-    .letter {
-        padding: 20px 17px;
-    }
-}
-
-
-/* ANIMASI KARAKTER SVG */
-
 .skin {
     fill: #eab895;
 }
 
 #girl .leg,
 #boy .leg {
-    fill: #eab895;
-}
-
-#girl .arm,
-#boy .arm {
     fill: #eab895;
 }
 
@@ -615,9 +516,6 @@ h2 {
     transform-origin: center top;
 }
 
-
-/* BERJALAN */
-
 #scene.walking #girl {
     animation: girlWalk 1.65s cubic-bezier(.2,.78,.18,1) forwards;
 }
@@ -627,55 +525,21 @@ h2 {
 }
 
 @keyframes girlWalk {
-    0% {
-        transform: translateX(-105px);
-    }
-
-    18% {
-        transform: translateX(-82px) translateY(-5px);
-    }
-
-    36% {
-        transform: translateX(-58px);
-    }
-
-    54% {
-        transform: translateX(-34px) translateY(-4px);
-    }
-
-    72% {
-        transform: translateX(-14px);
-    }
-
-    100% {
-        transform: translateX(-7px);
-    }
+    0% { transform: translateX(-105px); }
+    18% { transform: translateX(-82px) translateY(-5px); }
+    36% { transform: translateX(-58px); }
+    54% { transform: translateX(-34px) translateY(-4px); }
+    72% { transform: translateX(-14px); }
+    100% { transform: translateX(-7px); }
 }
 
 @keyframes boyWalk {
-    0% {
-        transform: translateX(105px);
-    }
-
-    18% {
-        transform: translateX(82px) translateY(-5px);
-    }
-
-    36% {
-        transform: translateX(58px);
-    }
-
-    54% {
-        transform: translateX(34px) translateY(-4px);
-    }
-
-    72% {
-        transform: translateX(14px);
-    }
-
-    100% {
-        transform: translateX(7px);
-    }
+    0% { transform: translateX(105px); }
+    18% { transform: translateX(82px) translateY(-5px); }
+    36% { transform: translateX(58px); }
+    54% { transform: translateX(34px) translateY(-4px); }
+    72% { transform: translateX(14px); }
+    100% { transform: translateX(7px); }
 }
 
 #scene.walking .legs {
@@ -687,9 +551,6 @@ h2 {
         transform: translateY(-3px) rotate(2deg);
     }
 }
-
-
-/* BERPELUKAN */
 
 #scene.hugging #girl {
     animation: girlHug .9s cubic-bezier(.18,.82,.22,1) forwards;
@@ -751,9 +612,6 @@ h2 {
     }
 }
 
-
-/* EFEK HATI DAN BAYANGAN */
-
 .bubble {
     opacity: 0;
     transform: translateY(8px);
@@ -798,9 +656,6 @@ h2 {
     }
 }
 
-
-/* POSISI AKHIR */
-
 #scene.complete #girl {
     transform: translateX(43px) rotate(-6deg);
 }
@@ -820,11 +675,73 @@ h2 {
     }
 }
 
+/* Letter */
 
-/* AKSESIBILITAS */
+.caption {
+    min-height: 22px;
+    color: #a17d90;
+    font-size: 12px;
+    margin: 3px 0 0;
+}
+
+.letter {
+    max-width: 550px;
+    margin: 22px auto 0;
+    padding: 26px 28px;
+    background: #fff9fc;
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    color: #806879;
+    font-size: 14px;
+    line-height: 2;
+    text-align: left;
+}
+
+.letter strong {
+    display: block;
+    text-align: right;
+    color: #bd7895;
+    font: 600 20px "Playfair Display", serif;
+    margin-top: 12px;
+}
+
+@media(max-width: 600px) {
+    .site {
+        padding: 14px 11px;
+    }
+
+    .nav {
+        margin-bottom: 14px;
+    }
+
+    .tag {
+        font-size: 8px;
+        padding: 8px;
+    }
+
+    .card {
+        border-radius: 24px;
+        padding: 30px 16px;
+    }
+
+    .card:before {
+        inset: 7px;
+    }
+
+    .teddy-wrap {
+        height: 210px;
+    }
+
+    .scene-wrap {
+        margin: 10px -12px 0;
+    }
+
+    .letter {
+        padding: 20px 17px;
+    }
+}
 
 @media(prefers-reduced-motion: reduce) {
-
     *,
     *:before,
     *:after {
@@ -833,5 +750,5 @@ h2 {
         scroll-behavior: auto !important;
         transition-duration: .01ms !important;
     }
-
 }
+```
